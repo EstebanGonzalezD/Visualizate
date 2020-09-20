@@ -1,0 +1,33 @@
+/*
+* Main Loader Animation
+*/
+.loader-container{
+    width:100%;
+    height:100vh;
+    background-color:rgb(253, 250, 250);
+    position:fixed;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    z-index:1;
+}
+.loader{
+    font-size:70px;
+    border-top-color:transparent;
+    animation: loader 5s linear infinite;
+}
+@keyframes loader{
+    10%{
+        color:#14d9f3;
+    }
+    25%{
+        color:#179ffa;
+    }
+    40%{
+        color:#2ee4a7;
+    }
+    50%{
+        color:#18ee8a;
+    }
+    
+}

@@ -1,0 +1,109 @@
+html,
+body {
+  margin:0;
+  padding:0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.container{
+  margin-top:50px;
+}
+.card.title, .card.instructions, .card.consent{
+  margin-top:20px;
+  height:auto;
+  border-radius:15px;
+}
+.border-top{
+  background: #582d70;
+  height:15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.card-title{
+  font-weight: 200;
+  font-size:50px;
+  color:#582d70;
+}
+.required{
+  color:#F44336;
+}
+.container-figure-test{
+  position:relative;
+  bottom: 42px;
+  right: 38px;
+}
+.container-figure-test-other{
+  position:relative;
+  bottom: 36px;
+  right: 32px;
+}
+.container-figure-test.margin{
+  margin-top:50px;
+}
+.figure-test, .figure-test-other{
+  width:250px;
+}
+.card-title-container{
+  margin-bottom:50px;
+}
+
+p{
+  margin-top:-35px;
+  color: #666;
+  font-weight: 300;
+  font-size:18px;
+}
+.question-title>i{
+ color:#582d70;
+}
+.radio-item {
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+.radio-item input[type='radio'] {
+  display: none;
+}
+.radio-item label {
+  color: #666;
+  font-weight: 300;
+}
+.radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid #582d70;
+  background-color: transparent;
+}
+.radio-item input[type=radio]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: #582d70;
+}
+.btn-start-test{
+  margin:20px;
+  background:#582d70;
+  color:white;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.141), 0 1px 3px 0 rgba(0,0,0,0.122);
+}
+.btn-start-test:hover{
+  background:#6b3688;
+  color:white;
+}
+.card-footer{
+  margin-top:50px;
+  text-align:right;
+}
+
+ 

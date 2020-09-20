@@ -1,0 +1,99 @@
+html,
+body {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%; 
+  background: #8ac2e2;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.navbar{
+  box-shadow: -21.213px 21.213px 30px 0px rgba(40, 101, 151, 0.3);
+  background: rgb(34, 33, 33) !important; 
+  height:80px;
+}
+.navbar-brand{
+  font-size:1.5em;
+  color:#fff !important;
+}
+.btn-sign_out i{
+  margin-right:5px;
+}
+.btn-sign_out{
+  background:#fff;
+}
+.btn-sign_out:hover{
+  background:transparent;
+  border: 1px solid #fff;
+  color:#fff;
+}
+.container{
+  margin-top:50px;
+}
+.card-title, .video-title{
+  font-weight:200;
+  font-size:40px;
+  margin-top:15px;
+}
+.card-text{
+  font-size:18px;
+}
+.row{
+  padding-left:110px;
+}
+.btn_modal{
+  width:170px;
+  height:40px;
+  background:rgb(93, 107, 189);
+  color:white;
+  margin:10px;
+}
+.btn_modal:hover{
+  background:rgb(112, 128, 216);
+  color:white;
+}
+.img-exersice{
+  float:left;
+  margin-right:5px;
+}
+.img-exersice1{
+  display:block;
+  margin:auto;
+}
+.img-exersice2{
+  display:inline-block;
+  margin-left:30px;
+}
+li.left{
+  width:80%;
+  position:relative;
+  left:30px;
+}
+ol,li{
+  margin-top:20px;
+  list-style: inside;
+}
+li > span{
+  color:rgb(250, 183, 15);
+}
+
+.modal-title{
+  font-size:30px;
+  font-weight:300;
+  color:#225d5d;
+}
+.btn-back .btn{
+    width:50px;
+    position:fixed;
+    border-radius:10px;
+    background:rgba(26, 209, 72, 0.918);
+    color:#fff;
+    left:90px;
+    bottom:40px;
+    border:none
+}
+.btn-back .btn:hover{
+    color:#fff;
+    background: rgba(29, 231, 96, 0.986);
+}

@@ -1,0 +1,352 @@
+:root{
+    --azul_claro: rgb(177, 212, 208);
+    --texto:#777777;
+    --negro:rgb(34, 33, 33);
+}
+*{
+    margin:0;
+    padding:0;
+    font-family: "Poppins", sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-weight:300;
+    font-size:16px;
+}
+
+
+/*
+* Navbar
+*/
+.navbar .nav-link {
+    color: #fff !important;
+    margin:0px 60px;
+    font-size:1.10em;
+}
+.navbar .nav-link:hover {
+    color:var(--azul_claro) !important;
+}
+.navbar-light .navbar-toggler {
+    background: #fff;
+}
+.navbar i, .navbar .btn{
+    margin-right:10px;
+}
+.navbar .btn{
+font-size:1.10em;
+
+}
+.navbar .btn:hover{
+    background:#fff;
+    color:#000;
+}
+.navbar {
+    transition: all 0.4s;
+}
+.navbar.active {
+    background: rgb(34, 33, 33) !important; 
+    box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
+}
+.navbar .navbar-brand{
+    display:none;
+}
+
+
+/*
+* Modal Navbar
+* Pop-Up
+* 'Iniciar Sesion'
+*/
+.modal .modal-content{
+    margin-top:100px;
+    background:var(--azul_claro) !important;
+    color:#fff;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+.modal .modal-header, .modal .modal-footer{
+    background:var(--negro);
+}
+.modal .modal-header .modal-title, .modal .modal-footer p{
+    margin-left:100px;
+    font-weight:300;
+    width:100%;
+}
+.modal .modal-content span{
+    color:#fff;
+}
+.modal-body .user, .modal-body .admin, .modal-body .invited{
+    width:100%;
+    margin:10px 0 10px 0;
+    height:100px;
+    background:#fff;
+    color:#000;
+    border:none;
+}
+.modal-body .btn:hover{
+    background: rgba(255, 255, 255, 0.801);
+    color:rgb(0, 0, 0);
+    border:none;
+}
+.modal .modal-body i{
+    margin-top:30px;
+    margin-right:5px;
+    font-size:1.5em;
+}
+.modal .modal-footer a{
+    color: #fff;
+    text-decoration:underline;
+}
+.modal .modal-footer a:hover{
+    color: rgb(116, 175, 243);
+}
+
+
+/*
+* Main container 
+*'VISUALIZA TU VIDA'
+*/
+section.container-eyes{
+    background-image: url(../img/eyes.gif); 
+    background-size:cover;
+    background-attachment: fixed;
+    width:100%;
+}
+section .main-title{
+    font-weight: 300;
+    font-size: 4.3em;
+}
+section .text{
+    padding:50px 0px;
+    text-align:center;
+}
+section .e-txt{
+    padding:10% 2%;
+    width:50%;
+}
+section .main-text{
+    margin-top:30px;
+}
+section.container-eyes .btn{
+    border-radius: 30px;
+    transition-duration: 0.6s;
+    padding:15px;
+    width:50%;
+    margin:20px 0px;
+    color:#fff;
+    background: #08080852;
+    border:1px solid #000;
+}
+section .btn:hover {
+    background-color:#08080821;
+    color:#fff;
+    border: 1px solid #000;
+}
+section .btn i{
+    display:none;
+}
+section .btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    transition-duration: 0.4;
+}
+section .btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+section .btn:hover span {
+    padding-right: 25px;
+}
+section .btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+/*
+* Btn Scroll-Up
+*/
+.btn-scrolltop .btn{
+    width:50px;
+    position:fixed;
+    border-radius:10px;
+    background:rgba(80, 185, 211, 0.705);
+    color:#fff;
+    right:10px;
+    bottom:40px;
+    border:none
+}
+.btn-scrolltop .btn:hover{
+    color:#fff;
+    background: rgba(80, 185, 211, 0.541);
+}
+
+
+/*
+* Second container
+* 'Tu mejor desición'
+*/
+section .row .card{
+    margin:20px;
+}
+.title{
+    font-weight:300;
+}
+section .subtitle-card{
+    font-weight:300;
+    font-size:1.5em;
+    color:royalblue; 
+}
+section .card-body .btn-info{
+    border-radius: 30px;
+    width:180px;
+    padding:10px;
+    color: #fff;
+    transition:0.2s;
+    border:none;
+    background: #ec6161d7;
+}
+section .card-body .btn-info:hover{
+    background-color:transparent;
+    color: #000;
+    border: 1px solid #000;
+}
+
+
+/*
+* Third container
+* 'Hola'
+*/
+main{
+    background-color:hsl(300, 16%, 74%);
+    width:100%;
+    height:250px;
+}
+main hr{
+    display:none;
+}
+main .container a{
+    transition: background 0.5s ease all}
+
+main .container{
+    padding:50px;
+}
+main .container .title{
+    font-weight:300;
+    font-size:40px;
+}
+.container .btn-more{
+    background:rgb(82, 24, 67);
+    color:#fff;
+    font-size:14px;
+    border:none;
+    width:150px;
+    padding:10px;
+}
+.container .btn:hover{
+    background:rgba(82, 24, 67, 0.747);
+    color:#fff;
+}
+.container .btn i{
+    color:#fff;
+    margin-left:10px;
+}
+.arrow {
+    animation: slide 1s ease-in-out infinite;
+    margin-left: 9px;
+}
+/*
+Arrow animation
+* 'Saber más'
+*/
+@keyframes slide {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(10px, 0);
+    }   
+} 
+
+
+/*
+* Fourth container
+* Team
+*/
+section .container h1{
+    font-size:3em;
+    color:rgb(68, 84, 128);
+}
+section .card-body p{
+    font-size:1em;
+}
+section .user{
+    font-size:3em;
+    color: rgb(20, 96, 121);
+    margin-bottom: 30px;
+}
+section .social-media{
+    color:rgb(67, 74, 116);
+    font-size:1em;
+}
+section h3>a:hover{
+    text-decoration:none;
+}
+
+
+/*
+* Footer section
+*/
+footer{
+    background:rgb(36, 34, 34);
+    color:rgb(216, 215, 215);
+}
+footer .color, .subscribe{
+    background:rgb(94, 121, 241);
+}
+footer .text-md-right i{
+    color:#fff;
+}
+footer .container .row{
+    margin-top:20px;
+}
+footer .subscribe{
+    background:linear-gradient(to left, #19bba0d7, #1f5cb8bd);
+    color:#fff;
+    border:none;
+    border-radius: 15px;
+    padding:8px;
+    width:180px;
+    margin-left:10px;
+}
+footer .subscribe:hover{
+    background:linear-gradient(to left, #19bba0, #1f5cb8);
+    color:#fff;
+}
+footer form input{
+  border-radius: 5px;
+  border:none;
+  padding: 10px;
+  width:300px;
+}
+footer a{
+    color:rgb(243, 237, 250);
+}
+footer a:hover{
+  color:#94cbeb;
+}
+footer h6{
+    color:rgb(255, 255, 255);
+}
+
+
+  
+  

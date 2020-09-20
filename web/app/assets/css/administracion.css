@@ -1,0 +1,49 @@
+h1{
+
+    text-align: center;
+}
+.header{
+    width: 140px;
+    height: 40px;
+    margin-top: 20px;
+    display: inline-table;
+    font-size: 0.8em;
+    background-color: orange;
+    padding: 5px;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+}
+
+.filas{
+    width: 140px;
+    margin-top: 5px;
+    display: inline-table;
+    font-size: 0.8em;
+    padding: 5px;
+    text-align: left;
+    line-height: 20px;
+}
+
+.contenedor{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ingresar_usuario{
+    float: left;
+    display: inline-block;
+    margin-left: 230px;
+}
+
+.ingresar_usuario input{
+
+    margin-left: 20px;
+}
+
+.submit{
+    margin-left: 30px;
+}
+ 
+ 

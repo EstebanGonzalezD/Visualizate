@@ -1,0 +1,317 @@
+/*
+* Responsive page
+*/
+@media screen and (min-width:320px) {
+    section.container-eyes{
+        background-image: linear-gradient(rgba(51, 51, 51, 0.45), rgba(51, 50, 50, 0.45)), url(../img/eyes.gif); 
+    }
+}
+@media (max-width: 991.98px) {
+    .loader-container{
+        display:none;
+    }
+    .navbar {
+        background: rgb(34, 33, 33) !important; 
+        box-shadow: -21.213px 21.213px 30px 0px rgba(158, 158, 158, 0.3);
+    }
+   .navbar .nav-link {
+        color: #fff !important;
+    }
+    .navbar .btn{
+        width:100%;
+        margin-top:10px !important;
+        font-size:14px;
+    }
+    .navbar .navbar-brand{
+        color:#fff !important;
+        display:block !important ;
+        font-weight:300;
+        margin:auto;
+    }
+    .navbar-brand{
+        font-size:20px;
+    }
+    section.container-eyes{
+        background-attachment: unset;
+        margin-top:50px;
+    }
+    body{
+        width:100%;
+    }
+    section .subtitle-card {
+        color:royalblue;
+    }
+    .btn-scrolltop .btn{
+        z-index:1;
+        width:50px;
+    }
+    main hr{
+        display:block;
+    }
+    .card-body-contact form input {
+        margin: 10px 0;
+        width: 100%;
+    }
+    .card-body-about strong {
+        font-size:30px
+    }
+    .card-body-about p {
+        font-size: 14px;
+    }
+    
+}
+@media screen and (min-width:320px) and (max-width:479px){
+    *{
+        font-size:16px;
+    }
+    section.container-eyes{
+        height:180px;
+    }
+    .card-body {
+        font-size:14px;
+    }
+    section .container h1{
+        font-size:30px;
+        margin-top:10px;
+    }
+    section .card-body .btn-info {
+        border-radius: 15px;
+        width: 100%;
+        padding: 5px;
+    }
+    .text .main-title, .text .more, .text .main-text,
+    section.container-eyes .btn{
+        display:none;
+    }
+    h3>a,i{
+        font-size:18px;
+    }
+    main .container .title {
+        font-size: 30px;
+    }
+    main .container .btn{
+        width:100%;
+    }
+    main .container {
+        padding:10px;
+    }
+    footer form input{
+        width:100%;
+    }
+    footer .subscribe{
+        width:100%;
+        border-radius: 5px;
+        margin-left:0;
+        margin-top:10px;
+    }
+    .card-body-about {
+        padding: 10px;
+        margin: 10px;
+        margin-top: 30px;
+        box-sizing: inherit;
+    }
+}
+@media screen and (min-width:480px) and (max-width:599px){
+    *{
+        font-size:16px;
+    }
+    section.container-eyes{
+        height:210px;
+    }
+    .card-body {
+        font-size:16px;
+    }
+    section .container h1{
+        font-size:34px;
+        margin-top:10px;
+    }
+    section .card-body .btn-info {
+        border-radius: 30px;
+        width: 50%;
+    }
+    .text .main-title, .text .main-text,
+    section.container-eyes .btn{
+        display:none;
+    }
+    h3>a,i{
+        font-size:22px;
+    }
+    main .container .title {
+        font-size: 30px;
+    }
+    .btn-scrolltop .btn{
+        right:20px;
+    }
+    main .container .btn{
+        width:100%;
+    }
+    main .container {
+        padding:10px;
+    }
+    footer form input{
+        width:100%;
+    }
+    footer .subscribe{
+        width:100%;
+        border-radius: 5px;
+        margin-left:0;
+        margin-top:10px;
+    } 
+}
+@media screen and (min-width:600px) and (max-width:767px){
+    *{
+        font-size:16px;
+    }
+    section.container-eyes{
+        height:250px;
+    }
+    .text .main-title{
+        display:none;
+    }
+    .text .main-text,
+     section.container-eyes .btn{
+        position:relative;
+        bottom:100px;
+    }
+    section.container-eyes .btn{
+        padding:10px;
+        width:200px;
+    }
+    h3>a,i{
+        font-size:24px;
+    }
+    main .container {
+        padding:10px;
+    }
+    section .container h1 {
+        font-size: 2em;
+    }
+    section .subtitle-card {
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .btn-scrolltop .btn{
+        right:24px;
+    }
+}
+@media screen and (min-width:768px) and (max-width:900px){
+    *{
+        font-size:18px;
+    }
+    section.container-eyes{
+        height:330px;
+    }
+    .text .main-title{
+        font-size:40px;
+        position:relative;
+        bottom:70px;
+    }
+    .text .main-text,
+     section.container-eyes .btn{
+        position:relative;
+        bottom:90px;
+    }
+    section.container-eyes .btn{
+        padding:10px;
+        width:300px;
+    }
+    h3>a,i{
+        font-size:24px;
+    }
+    main .container {
+        padding:10px;
+    }
+    section .container h1 {
+        font-size: 2em;
+    }
+    section .subtitle-card {
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .card-body {
+        padding:5px;
+    }
+    section .card-body .btn-info {
+        width: 100%;
+        padding:5px;
+        font-size:14px;
+    }
+}
+
+@media screen and (min-width:901px) and (max-width:1499px){
+    *{
+        font-size:16px;
+    }
+    section.container-eyes{
+        height:450px;
+        background-attachment: unset;
+    }
+    .navbar .nav-link {
+        font-size:18px;
+        color: #fff !important;
+        margin-left:30px;
+    }
+    .text .main-title{
+        font-size:40px;
+        position:relative;
+        bottom:15px;
+    }
+    nav .btn{
+        width:170px;
+        padding:5px;
+    }
+    .text .main-text, section.container-eyes .btn {
+        position: relative;
+        bottom: 20px;
+    }
+    section .subtitle-card {
+        color:royalblue;
+    }
+    .btn-scrolltop .btn{
+        z-index:1;
+        width:50px;
+    }
+    main hr{
+        display:block;
+    }
+    section.container-eyes .btn{
+        padding:10px;
+        width:300px;
+    }
+    h3>a,i{
+        font-size:16px;
+    }
+    main .container {
+        padding:10px;
+    }
+    section .container h1 {
+        font-size: 2em;
+    }
+    section .subtitle-card {
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .card-body {
+        padding:20px;
+    }
+    section .card-body .btn-info {
+        width: 100%;
+        padding:10px;
+        font-size:12px;
+    }
+    .card-body-about strong{
+        font-size:40px;
+    }
+}   
+@media screen and (min-width:1500px){
+    section.container-eyes{
+        height:980px;
+    }
+    section.container-eyes .btn,
+    section .main-text , 
+    .text .main-title{
+    position:relative;
+    top:60px;
+    }
+    
+}

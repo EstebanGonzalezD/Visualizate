@@ -1,0 +1,97 @@
+/* 
+* Responsive Login
+*/
+
+/*
+*Sign in
+*/
+
+@media screen and (max-width:500px){
+    .brand_logo {
+        font-size:30px;
+    }
+    form{
+        width:70%;
+    }
+    .user_card.login {
+        margin-top: 20%;
+    }
+}
+@media screen and (min-width:320px) and (max-width:369px){
+    .field-icon.login{
+        left:180px;
+    }
+}
+ @media screen and (min-width:370px) and (max-width:429px){
+    .field-icon.login{
+        left:210px;
+    }
+}
+@media screen and (min-width:430px) and (max-width:500px){
+    .field-icon.login{
+        left:250px;
+    }
+}
+
+/*
+*Sign Up
+*/
+
+
+@media screen and (min-width:760px) and ( max-width:768px){
+    .user_card{
+        position: relative;
+        top: 150px;
+    }
+}
+
+@media screen and (min-width:320px) and ( max-width:600px){
+    .btn-back .btn {
+        display: none;
+    }
+}
+@media screen and (min-width:600px){
+    .btn-back .btn {
+        z-index:1;
+    }
+}
+@media screen and (min-width:320px) and (max-width:400px){
+    .field-icon.sign-up{
+        left:190px;
+    } 
+    .input {
+        padding: 5px;
+    }
+    .custom-control-label.gender{
+        left:0px;
+    }
+    .btn_submit_SignUp {
+        left: 25%;
+    }
+}
+@media screen and (min-width:401px) and (max-width:501px){
+    .input {
+        padding: 5px;
+    }
+    .custom-control-label.gender{
+        left:30px;
+    }
+    .btn_submit_SignUp {
+        left: 30%;
+    }
+
+}
+@media screen and (min-width:504px) and (max-width:767px){
+    .custom-control-label.gender{
+        margin-bottom:20px;
+        left:50px;
+        margin-left:10px;
+    }
+    form{
+        width:70%;
+    }
+    .btn_submit_SignUp {
+        position: relative;
+        left: 40%;
+    } 
+}
