@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
 		grid.filter( (item) => item.getElement().dataset.etiquetas.includes(busqueda) );
 	});
 
-	// Agregamos listener para las imagenes
+	/* Agregamos listener para las imagenes
 	const overlay = document.getElementById('overlay');
 	document.querySelectorAll('.grid .item img').forEach((elemento) => {
 		elemento.addEventListener('click', () => {
@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
 			document.querySelector('#overlay img').src = ruta;
 			document.querySelector('#overlay .descripcion').innerHTML = descripcion;
 		});
-	});
+	});*/
 
 	// Eventlistener del boton de cerrar
 	document.querySelector('#btn-cerrar-popup').addEventListener('click', () => {

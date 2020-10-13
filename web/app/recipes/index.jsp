@@ -155,9 +155,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="creado-por">
-                    <p>Sitio diseñado por <a href="#">Carlos Arturo</a> - <a href="https://www.falconmasters.com">FalconMasters</a></p>
-                </div>
+
             </footer>
         </div>
 
