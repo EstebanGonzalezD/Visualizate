@@ -4,10 +4,15 @@ body {
   box-sizing: border-box;
   height: 100%;
   width: 100%; 
-  background: #8ac2e2;
+
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 }
+
+.backg{
+    background: #8ac2e2;
+}
+
 a, a:hover, a:active{
   text-decoration:none;
   color:#000;
@@ -198,3 +203,34 @@ span, strong{
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/*Styles Dark Mode*/
+
+.dark-mode-button{
+    position: absolute;
+    top: 20px;
+    left: -200px;
+    padding:20px;
+    background: white;
+}
+
+html.dark-mode{
+    filter: invert(100%);
+    
+}
+
+html.dark-mode img{
+    filter: invert(100%);
+    
+}
+
+html.dark-mode .navbar{
+    filter: invert(100%);
+    
+}
+
+html.dark-mode body{
+    background: #753d1d;
+    
+}
+

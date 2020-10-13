@@ -273,14 +273,14 @@ public class test extends HttpServlet {
             if (puntaje == 0) {
                 PrintWriter out = response.getWriter();
                 out.println("¡ Para que presentemos recomendaciones personalizadas primero tienes que realizar el test !");
-            } else if (puntaje < 133) {
+            } else if (puntaje < 133) { // Bajo
                 RequestDispatcher despachador = request.getRequestDispatcher("app/exercises/index_2.jsp");
                 despachador.forward(request, response);
-            } else if (puntaje > 133 && puntaje < 266) {
+            } else if (puntaje > 133 && puntaje < 266) { //Medio
                 RequestDispatcher despachador = request.getRequestDispatcher("app/exercises/index_1.jsp");
                 despachador.forward(request, response);
 
-            } else if (puntaje > 266) {
+            } else if (puntaje > 266) { // Alto
                 RequestDispatcher despachador = request.getRequestDispatcher("app/exercises/index.jsp");
                 despachador.forward(request, response);
             }

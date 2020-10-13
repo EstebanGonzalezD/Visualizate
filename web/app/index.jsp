@@ -26,7 +26,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
-    <body>
+    <body class="backg">
         <!---Loader main page-->
         <div class="loader-container">
             <div class="loader">Visualízate</div>
@@ -36,12 +36,15 @@
             <a class="navbar-brand mx-auto" href="../webPage/index.html">VISUALÍZATE</a>
             <form method="POST" action="${pageContext.request.contextPath}/test">
                 <input type="hidden" name="pagina" value="signout">
-                
+
                 <input id="login_btn" type="submit" value="Cerrar Sesión" class="btn btn-sign_out">
-                
+
             </form>
         </nav>
         <!-- Modal -->
+
+
+
         <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -216,6 +219,12 @@
                             </div>
                         </div>
                     </a>
+                    <label for="dark-mode" class="dark-mode-button">
+
+                        <input id="dark-mode" type="checkbox" onclick="document.documentElement.classList.toggle('dark-mode')">   
+                        Ver modo oscuro
+
+                    </label>
                 </div>
             </div>
         </div>
