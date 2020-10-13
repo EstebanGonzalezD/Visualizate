@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -11,80 +10,90 @@
         <title>Visualizate - Recetas</title>
     </head>
     <body>
-
         <div class="contenedor">
             <header>
-
                 <form action="">
                     <input type="text" class="barra-busqueda" id="barra-busqueda" placeholder="Buscar">
                 </form>
+                
                 <div class="categorias" id="categorias">
                     <a href="#" class="activo">Todos</a>
-                    <a href="#">Naturaleza</a>
-                    <a href="#">Ciudades</a>
-                    <a href="#">Personas</a>
+                    <a href="#">Bebidas</a>
+                    <a href="#">Frutos</a>
+                    <a href="#">Verduras</a>
                     <a href="#">Animales</a>
                 </div>
             </header>
 
             <section class="grid" id="grid">
+                
+               <!Te Manzanilla>
                 <div class="item" 
-                     data-categoria="ciudades"
-                     data-etiquetas="ciudades autos carros calles"
-                     data-descripcion="1.- Lorem ipsum dolor sit amet consectetur."
+                     data-categoria="bebidas"
+                     data-etiquetas="bebidas manzanilla te plantas"
+                     data-descripcion="Un te de manzanilla facil de preparar, 
+                     la manzanilla es un clásico en el cuidado de los ojos "
                      >
                     <div class="item-contenido">
-                        <img src="img/ciudad1.png" alt="">
+                        <a href="#"><img src="img/teManzanilla.jpg" alt=""></a>
+                    </div>
+                </div>
+             
+              <!SANTOLINA>
+                <div class="item"
+                     data-categoria="bebidas"
+                     data-etiquetas="manzanilla bebidas te plantas"
+                     data-descripcion="Es un tipo de manzanilla que se recomienda para 
+                     tratar la inflamación de los párpados"
+                     >
+                    <div class="item-contenido">
+                        <img src="img/santolina.jpg" alt="">
                     </div>
                 </div>
 
+               <!ARÁNDANOS>
                 <div class="item"
-                     data-categoria="personas"
-                     data-etiquetas="personas mujeres"
-                     data-descripcion="2.- Lorem ipsum dolor sit amet consectetur."
-                     >
-                    <div class="item-contenido">
-                        <img src="img/persona1.png" alt="">
-                    </div>
-                </div>
-
-                <div class="item"
-                     data-categoria="paisajes"
-                     data-etiquetas="paisajes montañas mar playas"
+                     data-categoria="frutos"
+                     data-etiquetas="frutos arandanos comida"
                      data-descripcion="3.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/paisaje1.png" alt="">
+                        <img src="img/arandanos.jpg" alt="">
                     </div>
                 </div>
 
+               
+              <!ZANAHORIA>
                 <div class="item"
-                     data-categoria="animales"
-                     data-etiquetas="animales leones"
+                     data-categoria="verduras"
+                     data-etiquetas="zanahoria verdura vegetal"
                      data-descripcion="4.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/animal1.png" alt="">
+                        <img src="img/zanahoria.jpg" alt="">
                     </div>
                 </div>
 
+               <!ACIANO>
                 <div class="item"
-                     data-categoria="animales"
-                     data-etiquetas="animales pandas"
+                     data-categoria="bebidas"
+                     data-etiquetas="bebidas plantas"
                      data-descripcion="5.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/animal2.png" alt="">
+                        <img src="img/aciano.jpg" alt="">
                     </div>
                 </div>
 
+               <!PEPINO>
                 <div class="item"
-                     data-categoria="personas"
-                     data-etiquetas="personas mujeres"
+                     data-categoria="verduras"
+                     data-etiquetas="verduras vegetal pepino"
                      data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/persona2.png" alt="">
+                        Hola gente
+                        <img src="img/pepino.jpg" alt="">
                     </div>
                 </div>
 
@@ -109,8 +118,8 @@
                 </div>
 
                 <div class="item"
-                     data-categoria="naturaleza"
-                     data-etiquetas="naturaleza hojas plantas"
+                     data-categoria="bebidas"
+                     data-etiquetas="bebidas hojas plantas"
                      data-descripcion="9.- Lorem ipsum dolor sit amet consectetur.
                      "
                      >
