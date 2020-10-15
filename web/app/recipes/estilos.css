@@ -9,13 +9,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-a {
-	text-decoration: none;
-}
 
 .contenedor {
 	width: 90%;
-	max-width: 800px;
+	max-width: 1150px;
 	margin: auto;
 }
 
@@ -64,7 +61,7 @@ header .categorias {
 header .categorias a {
 	color: #9B9B9B;
 	margin: 10px 20px;
-	font-size: 18px;
+	font-size: 25px;
 	font-weight: 700;
 }
 
@@ -93,6 +90,13 @@ header .categorias a.activo {
 	padding: 0;
 	margin: 10px;
 	width: calc(33.333333% - 20px);
+        /*border: #C7C6C7 solid 0.5px;*/
+}
+
+.grid .item p{
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    text-align: center;
 }
 
 .grid .item-contenido {
@@ -154,6 +158,47 @@ header .categorias a.activo {
 	position: absolute;
 	right: -20px;
 	top: -20px;
+}
+
+
+/* Desplegables Recetas*/
+.grid .item-contenido button{
+    background-color: #FFFFFF;
+    border: #FFFFFF none;
+}
+
+.modal-body p{
+    padding-top: 20px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 25px
+}
+
+.modal-body img{
+    max-width: 100%;
+}
+
+
+.modal-footer a{
+    text-decoration: none;
+}
+
+.modal .fate{
+    max-width: 80%;
+}
+
+.modal-body iframe{
+    padding-top: 20px;
+    max-width: 100%;   
+}
+
+.modal-title{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.dropdown{
+    padding-top: 20px;
 }
 
 /* ------------------------- */
