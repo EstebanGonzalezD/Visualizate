@@ -6,7 +6,7 @@ function ubicacion(id) {
         document.getElementById('mapa').src = "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d254513.30666130222!2d-74.1677264!3d4.6350014!3m2!1i1024!2i768!4f13.1!2m1!1scomprar%20te%20de%20manzanilla!5e0!3m2!1ses-419!2sco!4v1602772475025!5m2!1ses-419!2sco";
         document.getElementById('dropdownMenuButton').innerHTML = "Bogot&aacute;";
     } else if (id === "cali") {
-        document.getElementById('mapa').src = "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d509776.6199349941!2d-76.6294492!3d3.4398915!3m2!1i1024!2i768!4f13.1!2m1!1scomprar%20te%20de%20manzanilla!5e0!3m2!1ses-419!2sco!4v1602772498079!5m2!1ses-419!2sco";
+        document.getElementById('mapa').src = "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d509821.51509344985!2d-76.76128513749988!3d3.3548971034895954!3m2!1i1024!2i768!4f13.1!2m1!1scomprar%20te%20de%20manzanilla!5e0!3m2!1ses-419!2sco!4v1602808423735!5m2!1ses-419!2sco";
         document.getElementById('dropdownMenuButton').innerHTML = "Cali";
     }
 }

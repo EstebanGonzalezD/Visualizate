@@ -41,6 +41,31 @@
 
             </form>
         </nav>
+
+
+        <%
+            try {
+
+                boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
+
+                if (false) {
+
+        %>
+        <script>
+            document.getElementById("nnn").value = "On";
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+        <%        } else if (!status_dm) {
+
+        %>
+        <script>
+            document.getElementById("nnn").value = "";
+            document.documentElement.classList.toggle('dark-');
+        </script>
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
         <!-- Modal -->
 
 
@@ -138,7 +163,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="${pageContext.request.contextPath}/app/recipes/index.jsp" class="card-group">           
+                    <a href="${pageContext.request.contextPath}/app/recipes/index.jsp?param1=true" class="card-group">           
                         <div class="col-4">
                             <div class="card content-item" id="card2">
                                 <div class="card-image pic">
@@ -219,12 +244,13 @@
                             </div>
                         </div>
                     </a>
-                    <label for="dark-mode" class="dark-mode-button">
 
-                        <input id="dark-mode" type="checkbox" onclick="document.documentElement.classList.toggle('dark-mode')">   
-                        Ver modo oscuro
+                    <form class="dark-mode-button" action="${pageContext.request.contextPath}/Lobby" method="post">
+                        <input type="hidden" name="pagina" value="Dark-mode">
+                        <input id="nnn" type="hidden" name="nnn" value="Off">
+                        <input id="dark-mode-content" type="submit" value="Modo Oscuro" class="btn login_btn">
+                    </form>
 
-                    </label>
                 </div>
             </div>
         </div>

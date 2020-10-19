@@ -84,7 +84,7 @@ public class Lobby extends HttpServlet {
             throws ServletException, IOException {
 
         String pagina = request.getParameter("pagina");
-        
+
         if (pagina.equals("pre_test")) {
 
             Conexion c = new Conexion();
@@ -111,14 +111,12 @@ public class Lobby extends HttpServlet {
                     genero = usuarios.getString("GENERO");
                     fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
                     puntaje = usuarios.getInt("PUNTAJE");
-                    
+
                 }
                 st.close();
             } catch (SQLException ex) {
                 Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            
 
             if (puntaje == 0) {
                 RequestDispatcher despachador = request.getRequestDispatcher("app/test.jsp");
@@ -128,6 +126,28 @@ public class Lobby extends HttpServlet {
                 despachador.forward(request, response);
             }
 
+        } else if (pagina.equals("Dark-mode")) {
+            
+            String nnn = request.getParameter("nnn");
+            boolean dark_mode;
+            
+          
+            
+            if(nnn.equals("Off")){
+                dark_mode= true;
+                nnn = "On";
+            }else{
+                dark_mode= false;
+                nnn = "Off";
+            }
+           
+            
+            
+            request.setAttribute("status_dm", dark_mode);
+            request.setAttribute("status_dm_letters", nnn);
+            RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
+            despachador.forward(request, response);
+        
         } else {
         }
 

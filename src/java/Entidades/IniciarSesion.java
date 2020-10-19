@@ -15,6 +15,7 @@ import java.sql.Statement;
  *
  * @author Esteban
  */
+
 public class IniciarSesion {
 
     public static boolean Login(String nombre_usuario, String contraseña) throws SQLException {
@@ -26,7 +27,7 @@ public class IniciarSesion {
         if (con != null) {
             Statement st;
             st = con.createStatement();
-            resultado = st.executeQuery("SELECT COUNT(*) FROM USUARIO WHERE nombre_usuario='" + nombre_usuario + "' and contraseña='" + contraseña + "'");
+            resultado = st.executeQuery("SELECT COUNT(*) FROM USUARIO WHERE usuario='" + nombre_usuario + "' and contrasenia='" + contraseña + "'");
 
             /*if (resultado.getInt(1) == 0) {
             

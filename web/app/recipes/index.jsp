@@ -15,12 +15,33 @@
         <!-- Menu Desplegable -->
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+        <!-- Dark mode -->
+
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style-app.css">
+
         <title>Visualizate - Recetas</title>
 
 
 
     </head>
     <body>
+
+        <%
+            try {
+
+                boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
+
+                if (status_dm) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
+
         <div class="contenedor">
             <header>
                 <form action="">

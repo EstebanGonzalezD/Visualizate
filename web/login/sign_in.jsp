@@ -27,7 +27,7 @@
     </head>
     <body>
         <div class="btn-back">
-            <a href="${pageContext.request.contextPath}/webPage/index.html" class="btn"><i class="fas fa-angle-left"></i></a>
+            <a href="${pageContext.request.contextPath}/webPage" class="btn"><i class="fas fa-angle-left"></i></a>
         </div>
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">

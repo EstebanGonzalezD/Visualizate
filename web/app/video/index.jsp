@@ -17,6 +17,8 @@
     <link rel="mask-icon" href="../../img/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    
+    
 </head>
 
 <body>
@@ -27,6 +29,23 @@
                 <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
         </nav>
     </div>
+    
+    <%
+            try {
+
+                boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
+
+                if (status_dm) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
+        
     <div class="btn-back">
         <a href="../index.jsp" class="btn"><i class="fas fa-angle-left"></i></a>
     </div>

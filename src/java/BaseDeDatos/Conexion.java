@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Conexion {
 
     private static Connection conn = null;
-    private static String user = "visualizateDB";
+    private static String user = "visualizate";
     private static String password = "poli20";
     private static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 

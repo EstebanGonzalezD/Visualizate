@@ -164,6 +164,9 @@ public class ServletRegistro extends HttpServlet {
             }
 
             if (sw) {
+                boolean dark_mode= false;
+                request.setAttribute("status_dm", dark_mode);
+            
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
                 despachador.forward(request, response);
             } else {
