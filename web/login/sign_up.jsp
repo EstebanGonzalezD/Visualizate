@@ -28,7 +28,7 @@
     </head>
     <body>
     <div class="btn-back">
-        <a href="../webPage/index.html" class="btn"><i class="fas fa-angle-left"></i></a>
+        <a href="../webPage/" class="btn"><i class="fas fa-angle-left"></i></a>
     </div>
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
@@ -137,6 +137,11 @@
                         <br>
                         <input type="hidden" name="pagina" value="registro">
                         <button class="btn btn-primary btn_submit_SignUp" type="submit">Registrarse</button>
+                        <div class="mt-4">
+                        <div class="d-flex justify-content-center links">
+                            <p>¿Ya tienes una cuenta?<a href="${pageContext.request.contextPath}/login/sign_in.jsp" class="ml-2">Iniciar Sesión</a></p>
+                        </div>
+                    </div>
                     </form>
                 </div>
             </div>

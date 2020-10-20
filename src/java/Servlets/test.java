@@ -86,6 +86,31 @@ public class test extends HttpServlet {
         String pagina = request.getParameter("pagina");
 
         if (pagina.equals("test")) {
+
+            HttpSession sesion = request.getSession(false);
+            String user = (String) sesion.getAttribute("username");
+            int id = 0;
+            int contador=0;
+            try {
+                
+                Conexion c = new Conexion();
+                Connection con = c.getConnection();
+                ResultSet rs = null;
+                Statement st = con.createStatement();   
+                rs = st.executeQuery("select id_usuario from Usuario where usuario='"+user+"'");
+
+                if (rs != null) {
+                    while (rs.next()) {
+                        id = rs.getInt(1);
+                    }
+
+                }
+                /*
+                id = ActualizarModificarEliminar.ObtenerID(user);*/
+            } catch (SQLException ex) {
+                Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             int puntaje = 0;
             String respuesta1 = request.getParameter("respuesta-p1");
             String respuesta2 = request.getParameter("respuesta-p2");
@@ -98,115 +123,180 @@ public class test extends HttpServlet {
             String respuesta9 = request.getParameter("respuesta-p9");
             String respuesta10 = request.getParameter("respuesta-p10");
 
+            int irespuesta1;
+            int irespuesta2;
+            int irespuesta3;
+            int irespuesta4;
+            int irespuesta5;
+            int irespuesta6;
+            int irespuesta7;
+            int irespuesta8;
+            int irespuesta9;
+            int irespuesta10;
+
             if (respuesta1.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta1 = 40;
             } else if (respuesta1.equals("B")) {
-                
                 puntaje = puntaje + 30;
+                irespuesta1 = 30;
             } else if (respuesta1.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta1 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta1 = 10;
             }
 
             if (respuesta2.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta2 = 40;
             } else if (respuesta2.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta2 = 30;
             } else if (respuesta2.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta2 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta2 = 10;
             }
 
             if (respuesta3.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta3 = 40;
             } else if (respuesta3.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta3 = 30;
             } else if (respuesta3.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta3 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta3 = 10;
             }
 
             if (respuesta4.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta4 = 40;
             } else if (respuesta4.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta4 = 30;
             } else if (respuesta4.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta4 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta4 = 10;
             }
 
             if (respuesta5.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta5 = 40;
             } else if (respuesta5.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta5 = 30;
             } else if (respuesta5.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta5 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta5 = 10;
             }
 
             if (respuesta6.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta6 = 40;
             } else if (respuesta6.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta6 = 30;
             } else if (respuesta6.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta6 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta6 = 10;
             }
 
             if (respuesta7.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta7 = 40;
             } else if (respuesta7.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta7 = 30;
             } else if (respuesta7.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta7 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta7 = 10;
             }
 
             if (respuesta8.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta8 = 40;
             } else if (respuesta8.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta8 = 30;
             } else if (respuesta8.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta8 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta8 = 10;
             }
 
             if (respuesta9.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta9 = 40;
             } else if (respuesta9.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta9 = 30;
             } else if (respuesta9.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta9 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta9 = 10;
             }
 
             if (respuesta10.equals("A")) {
                 puntaje = puntaje + 40;
+                irespuesta10 = 40;
             } else if (respuesta10.equals("B")) {
                 puntaje = puntaje + 30;
+                irespuesta10 = 30;
             } else if (respuesta10.equals("C")) {
                 puntaje = puntaje + 20;
+                irespuesta10 = 20;
             } else {
                 puntaje = puntaje + 10;
+                irespuesta10 = 10;
             }
 
-            HttpSession sesion = request.getSession(false);
             sesion.setAttribute("puntaje", puntaje);
-            String user = (String) sesion.getAttribute("username");
+            sesion.setAttribute("id", id);
 
             boolean sw = false;
-
+            boolean sw2 = false;
+            
             try {
-                sw = ActualizarModificarEliminar.ActualizarElPuntaje(user, puntaje);
+                sw = ActualizarModificarEliminar.InsertarPuntajeTest(id, user, puntaje);
+                
+                Conexion c = new Conexion();
+                Connection con = c.getConnection();
+                ResultSet rs = null;
+                Statement st = con.createStatement();   
+                rs = st.executeQuery("Select count(id_test) from seguimiento");
+
+                if (rs != null) {
+                    while (rs.next()) {
+                        contador = rs.getInt(1);
+                    }
+
+                }
+                
+                sw2 = ActualizarModificarEliminar.InsertarRespuestasTest(contador, irespuesta1, irespuesta2, irespuesta3, irespuesta4, irespuesta5, irespuesta6, irespuesta7, irespuesta8, irespuesta9, irespuesta10);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -285,8 +375,8 @@ public class test extends HttpServlet {
                 despachador.forward(request, response);
             }
 
-        } else if(pagina.equals("test_2")){
-            
+        } else if (pagina.equals("test_2")) {
+
             int puntaje = 0;
             String respuesta1 = request.getParameter("respuesta-p1");
             String respuesta2 = request.getParameter("respuesta-p2");
@@ -302,7 +392,7 @@ public class test extends HttpServlet {
             if (respuesta1.equals("A")) {
                 puntaje = puntaje + 40;
             } else if (respuesta1.equals("B")) {
-                
+
                 puntaje = puntaje + 30;
             } else if (respuesta1.equals("C")) {
                 puntaje = puntaje + 20;
@@ -427,8 +517,8 @@ public class test extends HttpServlet {
             out.println("El usuario"+puntaje);*/
             RequestDispatcher despachador = request.getRequestDispatcher("app/resultado_test2.jsp");
             despachador.forward(request, response);
-        
-        }else{
+
+        } else {
             PrintWriter out = response.getWriter();
             out.println("Algo no funcinó correctamente");
 

@@ -15,6 +15,7 @@
         <%
             String username = (String) session.getAttribute("username");
             String password = (String) session.getAttribute("password");
+            int id = (Integer) session.getAttribute("id");
             int puntaje = (Integer)session.getAttribute("puntaje");
             
             if(username == null && password == null ){
@@ -25,6 +26,7 @@
         <span>
             Usuario: <%=username%> <br>
             Puntaje: <%=puntaje%> <br>
+            ID: <%=id%> <br>
             <a href="app/index.jsp">Continuar</a>
         </span>
             <%

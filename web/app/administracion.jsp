@@ -48,7 +48,7 @@
             <span style="background-color: <%=color_activo%>" class="filas"><%=c.getCorreo()%></span>
             <span style="background-color: <%=color_activo%>" class="filas"><%=c.getGenero()%></span>
             <span style="background-color: <%=color_activo%>" class="filas"><%=c.getFecha()%></span>
-            <span style="background-color: <%=color_activo%>" class="filas"><%=c.getPuntaje()%></span>
+            <span style="background-color: <%=color_activo%>" class="filas">0</span>
             <br>
             <%
 

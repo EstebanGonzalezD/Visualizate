@@ -67,7 +67,7 @@ public class Administracion extends HttpServlet {
                 String nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento;
                 int puntaje;
 
-                try {
+                try{
 
                     Statement st;
                     st = con.createStatement();
@@ -75,20 +75,20 @@ public class Administracion extends HttpServlet {
                     while (usuario.next()) {
 
                         //id = usuario.getInt("");
-                        nombre = usuario.getString("NOMBRE");
+                        nombre = usuario.getString("USUARIO");
                         nombre_usuario = usuario.getString("NOMBRE_USUARIO");
-                        contraseña = usuario.getString("CONTRASEÑA");
+                        contraseña = usuario.getString("CONTRASENIA");
                         correo = usuario.getString("CORREO");
                         genero = usuario.getString("GENERO");
                         fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        puntaje = usuario.getInt("PUNTAJE");
+                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, puntaje));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
 
                     }
                     st.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
+                }catch(SQLException e){
+                
                 }
 
                 request.setAttribute("usuarios", array_usuarios);
@@ -135,15 +135,15 @@ public class Administracion extends HttpServlet {
                     while (usuarios.next()) {
 
                         //id = usuario.getInt("");
-                        nombre = usuarios.getString("NOMBRE");
+                        nombre = usuarios.getString("USUARIO");
                         nombre_usuario = usuarios.getString("NOMBRE_USUARIO");
-                        contraseña = usuarios.getString("CONTRASEÑA");
+                        contraseña = usuarios.getString("CONTRASENIA");
                         correo = usuarios.getString("CORREO");
                         genero = usuarios.getString("GENERO");
                         fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        puntaje = usuarios.getInt("PUNTAJE");
+                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, puntaje));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
 
                     }
                     st.close();
@@ -185,19 +185,19 @@ public class Administracion extends HttpServlet {
 
                     Statement st;
                     st = con.createStatement();
-                    ResultSet usuarios = st.executeQuery("Select * from USUARIO");
-                    while (usuarios.next()) {
+                    ResultSet usuario = st.executeQuery("Select * from USUARIO");
+                    while (usuario.next()) {
 
                         //id = usuario.getInt("");
-                        nombre = usuarios.getString("NOMBRE");
-                        nombre_usuario = usuarios.getString("NOMBRE_USUARIO");
-                        contraseña = usuarios.getString("CONTRASEÑA");
-                        correo = usuarios.getString("CORREO");
-                        genero = usuarios.getString("GENERO");
-                        fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        puntaje = usuarios.getInt("PUNTAJE");
+                        nombre = usuario.getString("USUARIO");
+                        nombre_usuario = usuario.getString("NOMBRE_USUARIO");
+                        contraseña = usuario.getString("CONTRASENIA");
+                        correo = usuario.getString("CORREO");
+                        genero = usuario.getString("GENERO");
+                        fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
+                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, puntaje));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
 
                     }
                     st.close();
@@ -239,19 +239,19 @@ public class Administracion extends HttpServlet {
 
                     Statement st;
                     st = con.createStatement();
-                    ResultSet usuarios = st.executeQuery("Select * from USUARIO");
-                    while (usuarios.next()) {
+                    ResultSet usuario = st.executeQuery("Select * from USUARIO");
+                    while (usuario.next()) {
 
                         //id = usuario.getInt("");
-                        nombre = usuarios.getString("NOMBRE");
-                        nombre_usuario = usuarios.getString("NOMBRE_USUARIO");
-                        contraseña = usuarios.getString("CONTRASEÑA");
-                        correo = usuarios.getString("CORREO");
-                        genero = usuarios.getString("GENERO");
-                        fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        puntaje = usuarios.getInt("PUNTAJE");
+                        nombre = usuario.getString("USUARIO");
+                        nombre_usuario = usuario.getString("NOMBRE_USUARIO");
+                        contraseña = usuario.getString("CONTRASENIA");
+                        correo = usuario.getString("CORREO");
+                        genero = usuario.getString("GENERO");
+                        fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
+                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, puntaje));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
 
                     }
                     st.close();
@@ -289,19 +289,19 @@ public class Administracion extends HttpServlet {
 
                     Statement st;
                     st = con.createStatement();
-                    ResultSet usuarios = st.executeQuery("Select * from USUARIO where nombre_usuario='"+ParamUsuario+"'");
-                    while (usuarios.next()) {
+                    ResultSet usuario = st.executeQuery("Select * from USUARIO where usuario='"+ParamUsuario+"'");
+                    while (usuario.next()) {
 
                         //id = usuario.getInt("");
-                        nombre = usuarios.getString("NOMBRE");
-                        nombre_usuario = usuarios.getString("NOMBRE_USUARIO");
-                        contraseña = usuarios.getString("CONTRASEÑA");
-                        correo = usuarios.getString("CORREO");
-                        genero = usuarios.getString("GENERO");
-                        fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        puntaje = usuarios.getInt("PUNTAJE");
+                        nombre = usuario.getString("USUARIO");
+                        nombre_usuario = usuario.getString("NOMBRE_USUARIO");
+                        contraseña = usuario.getString("CONTRASENIA");
+                        correo = usuario.getString("CORREO");
+                        genero = usuario.getString("GENERO");
+                        fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
+                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, puntaje));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
 
                     }
                     st.close();
