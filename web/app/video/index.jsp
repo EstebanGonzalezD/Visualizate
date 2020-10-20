@@ -26,7 +26,7 @@
         <nav class="navbar navbar-light fixed-top bg-light">
             <a class="navbar-brand mx-auto" href="../index.jsp">VISUALIZATE</a>
             <a href="../../login/sign_in.jsp" class="btn btn-sign_out">
-                <i class="fas fa-sign-out-alt"></i>Cerrar SesiÃ³n</a>
+                <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
         </nav>
     </div>
     

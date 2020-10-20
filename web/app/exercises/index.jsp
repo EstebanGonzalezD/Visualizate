@@ -125,7 +125,7 @@
                     <div class="modal-body">
                         <img class="img-exersice1" src="${pageContext.request.contextPath}/app/exercises/assets/img/ejercicio2.png" width="465" alt="">
                         <ol>
-                            <li>Mantén la cabeza recta mientras estÃ¡s sentado</li>
+                            <li>Mantén la cabeza recta mientras estás sentado</li>
                             <li>Dirige la mirada lo más lejos que puedas y
                                 manténla durante dos o tres segundos en cada uno de los cuatro puntos:
                                 <ul>
@@ -154,7 +154,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Masaje en las
-                            Ã³rbitas de los ojos</h5>
+                            Órbitas de los ojos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -269,7 +269,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title w-100 text-center" id="exampleModalLabel">PrevenciÃ³n de
+                        <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Prevención de
                             la sequedad ocular</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -281,10 +281,10 @@
                         <div class="modal-text">
                             <ol>
                                 <li>
-                                    Mira hacia delante con la cabeza recta y relaja los mÃºsculos faciales
+                                    Mira hacia delante con la cabeza recta y relaja los músculos faciales
                                 </li>
                                 <li>
-                                    Abre y cierra los pÃ¡rpados 20 veces.</li>
+                                    Abre y cierra los párpados 20 veces.</li>
                                 <li>
                                     Mantén los músculos relajados todo el tiempo
                                 </li>
@@ -374,7 +374,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Abrir y cerrar los pÃ¡rpados</h5>
+                    <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Abrir y cerrar los párpados</h5>
                 </div>
                 <div class="modal-body">
                     <iframe width="765" height="415" src="https://www.youtube.com/embed/qqM3-6dgMAY" frameborder="0"
@@ -458,7 +458,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Fortalecer los pÃ¡rpados</h5>
+                    <h5 class="modal-title w-100 text-center" id="exampleModalLabel">Fortalecer los párpados</h5>
                 </div>
                 <div class="modal-body">
                     <iframe width="765" height="415" src="https://www.youtube.com/embed/WLPZLpZ7d3o" frameborder="0"

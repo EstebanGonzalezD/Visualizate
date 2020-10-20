@@ -90,14 +90,14 @@ public class test extends HttpServlet {
             HttpSession sesion = request.getSession(false);
             String user = (String) sesion.getAttribute("username");
             int id = 0;
-            int contador=0;
+            int contador = 0;
             try {
-                
+
                 Conexion c = new Conexion();
                 Connection con = c.getConnection();
                 ResultSet rs = null;
-                Statement st = con.createStatement();   
-                rs = st.executeQuery("select id_usuario from Usuario where usuario='"+user+"'");
+                Statement st = con.createStatement();
+                rs = st.executeQuery("select id_usuario from Usuario where usuario='" + user + "'");
 
                 if (rs != null) {
                     while (rs.next()) {
@@ -279,14 +279,14 @@ public class test extends HttpServlet {
 
             boolean sw = false;
             boolean sw2 = false;
-            
+
             try {
                 sw = ActualizarModificarEliminar.InsertarPuntajeTest(id, user, puntaje);
-                
+
                 Conexion c = new Conexion();
                 Connection con = c.getConnection();
                 ResultSet rs = null;
-                Statement st = con.createStatement();   
+                Statement st = con.createStatement();
                 rs = st.executeQuery("Select count(id_test) from seguimiento");
 
                 if (rs != null) {
@@ -295,7 +295,7 @@ public class test extends HttpServlet {
                     }
 
                 }
-                
+
                 sw2 = ActualizarModificarEliminar.InsertarRespuestasTest(contador, irespuesta1, irespuesta2, irespuesta3, irespuesta4, irespuesta5, irespuesta6, irespuesta7, irespuesta8, irespuesta9, irespuesta10);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
@@ -336,27 +336,27 @@ public class test extends HttpServlet {
             Connection con = c.getConnection();
 
             int puntaje = 0;
-
+            int id = 0;
             String nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento;
+            String fecha;
+            int id_test;
 
             try {
-
+                id = ActualizarModificarEliminar.ObtenerID(user);
                 Statement st;
                 st = con.createStatement();
-                ResultSet usuarios = st.executeQuery("Select * from USUARIO where nombre_usuario='" + user + "'");
+                ResultSet usuarios = st.executeQuery("Select * from seguimiento where usuario_id_usuario='" + id + "'");
+
                 while (usuarios.next()) {
 
-                    //id = usuario.getInt("");
-                    nombre = usuarios.getString("NOMBRE");
-                    nombre_usuario = usuarios.getString("NOMBRE_USUARIO");
-                    contraseña = usuarios.getString("CONTRASEÑA");
-                    correo = usuarios.getString("CORREO");
-                    genero = usuarios.getString("GENERO");
-                    fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
+                    id_test = usuarios.getInt("ID_TEST");
+                    fecha = usuarios.getString("FECHA").split(" ")[0];
                     puntaje = usuarios.getInt("PUNTAJE");
 
                 }
+
                 st.close();
+                c.desconexion();
             } catch (SQLException ex) {
                 Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
             }

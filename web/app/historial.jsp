@@ -4,6 +4,7 @@
     Author     : Esteban
 --%>
 
+<%@page import="Entidades.ActualizarModificarEliminar"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -41,26 +42,28 @@
             String user = (String) sesion.getAttribute("username");
             int puntaje = 0;
             int puntaje2 = 0;
+            int id = 0;
             String nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento;
+            
+            String fecha;
+            int id_test;
 
             try {
-
+                id = ActualizarModificarEliminar.ObtenerID(user);
                 Statement st;
                 st = con.createStatement();
-                ResultSet usuarios = st.executeQuery("Select * from USUARIO where nombre_usuario='" + user + "'");
+                ResultSet usuarios = st.executeQuery("Select * from seguimiento where usuario_id_usuario='" + id + "'");
+                
                 while (usuarios.next()) {
-
-                    //id = usuario.getInt("");
-                    nombre = usuarios.getString("NOMBRE");
-                    nombre_usuario = usuarios.getString("NOMBRE_USUARIO");
-                    contraseña = usuarios.getString("CONTRASEÑA");
-                    correo = usuarios.getString("CORREO");
-                    genero = usuarios.getString("GENERO");
-                    fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
+                    
+                    id_test = usuarios.getInt("ID_TEST");
+                    fecha = usuarios.getString("FECHA").split(" ")[0];
                     puntaje = usuarios.getInt("PUNTAJE");
-                    puntaje2 = usuarios.getInt("PUNTAJE2");
+                    
                 }
+                
                 st.close();
+                c.desconexion();
             } catch (SQLException ex) {
                 Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
             }
