@@ -40,6 +40,9 @@
 
             HttpSession sesion = request.getSession(false);
             String user = (String) sesion.getAttribute("username");
+            
+            
+            
             int puntaje = 0;
             int puntaje2 = 0;
             int id = 0;
