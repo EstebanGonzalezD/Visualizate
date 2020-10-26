@@ -49,19 +49,11 @@
                 boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
 
                 if (false) {
-
         %>
         <script>
-            document.getElementById("nnn").value = "On";
             document.documentElement.classList.toggle('dark-mode');
         </script>
-        <%        } else if (!status_dm) {
-
-        %>
-        <script>
-            document.getElementById("nnn").value = "";
-            document.documentElement.classList.toggle('dark-');
-        </script>
+        
         <%                }
             } catch (Exception e) {
             }

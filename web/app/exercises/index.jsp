@@ -131,7 +131,7 @@
                                 <ul>
                                     <li>Arriba</li>
                                     <li>Abajo</li>
-                                    <li>Izquirda</li>
+                                    <li>Izquierda</li>
                                     <li>Derecha</li>
                                 </ul>
                                 <span>*Mueve los ojos no la cabeza. Repite el ejercicio 3

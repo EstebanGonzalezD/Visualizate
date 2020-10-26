@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>VisualÃ­zate</title>
+    <title>Visualízate</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
@@ -31,7 +31,7 @@
         <a class="navbar-brand mx-auto" href="../webPage/index.html">VISUALIZATE</a>
         <ul class="form-inline my-2 my-lg-0">
             <a href="../login/sign_in.jsp" class="btn btn-outline-light my-2 my-sm-0"><i
-                    class="fas fa-user"></i>Iniciar Sesion
+                    class="fas fa-user"></i>Iniciar Sesión
             </a>
     </nav>
     <a href="../login/sign_up.jsp" class="alert btn-primary alert-dismissible  
@@ -46,9 +46,9 @@
             Presiona aquí!
         </div>
         <!--Close Icon-->
-        <a type="button" class="btn close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">Ã—</span>
-        </a>
+        <button type="button" class="btn close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
     </a>
 
     <div class="container">
