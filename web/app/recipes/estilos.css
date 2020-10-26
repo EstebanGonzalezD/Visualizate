@@ -14,6 +14,7 @@ body {
 	width: 90%;
 	max-width: 1150px;
 	margin: auto;
+        padding-top: 80px;
 }
 
 /* ------------------------- */
@@ -42,14 +43,14 @@ header form {
 
 header .barra-busqueda {
 	width: 70%;
-	height: 40px;
+	height: 50px;
 	line-height: 40px;
 	background: #fff;
 	padding: 0 20px;
 	border-radius: 100px;
 	border: none;
 	text-align: center;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 header .categorias {
@@ -107,6 +108,14 @@ header .categorias a.activo {
 	width: 100%;
 	cursor: pointer;
 	vertical-align: top;
+}
+
+.barra-busqueda:hover {
+    border: #000 5px solid;
+}
+
+.barra-busqueda{
+    font-size: 50px;
 }
 
 /* ------------------------- */
@@ -236,6 +245,20 @@ footer .redes-sociales a i {
 footer .contenedor-icono:hover a {
 	animation: icono .5s ease;
 }
+
+
+
+/*Barra de Navegación*/
+.navbar a{
+    font-size: 25px;
+}
+
+#login_btn{
+
+    font-size: 17px;
+}
+
+
 
 @keyframes icono {
 	from {
