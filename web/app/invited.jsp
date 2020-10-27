@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="../app/assets/css/style-app.css">
-    <link rel="stylesheet" href="../app/assets/css/spinner.css">
-    <link rel="stylesheet" href="../app/assets/css/mediaqueries-app.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style-app.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/spinner.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/mediaqueries-app.css">
     <!----Favicon---->
     <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
-    <link rel="manifest" href="../img/site.webmanifest">
-    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="${pageContext.request.contextPath}/app/img/site.webmanifest">
+    <link rel="mask-icon" href="${pageContext.request.contextPath}/app/img/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
@@ -28,13 +28,13 @@
     </div>
     <!--Navbar-->
     <nav class="navbar navbar-light fixed-top bg-light" style="display:none;">
-        <a class="navbar-brand mx-auto" href="../webPage/index.html">VISUALIZATE</a>
+        <a class="navbar-brand mx-auto" href="">VISUALIZATE</a>
         <ul class="form-inline my-2 my-lg-0">
-            <a href="../login/sign_in.jsp" class="btn btn-outline-light my-2 my-sm-0"><i
+            <a href="${pageContext.request.contextPath}/login/sign_in.jsp" class="btn btn-outline-light my-2 my-sm-0"><i
                     class="fas fa-user"></i>Iniciar Sesión
             </a>
     </nav>
-    <a href="../login/sign_up.jsp" class="alert btn-primary alert-dismissible  
+    <a href="${pageContext.request.contextPath}/app/login/sign_up.jsp" class="alert btn-primary alert-dismissible  
             fade show w-50 mensaje text-white" role="alert" style="display:none;">
         <div>
             <span>Hola!</span>
@@ -54,11 +54,11 @@
     <div class="container">
         <div class="row">
             <div class="row justify-content-around">
-                <a href="../login/sign_in.jsp" class="card-group">
+                <a href="${pageContext.request.contextPath}/login/sign_in.jsp" class="card-group">
                     <div class="col-4">
                         <div class="card content-item" id="card1">
                             <div class="card-image pic">
-                                <img class="card-img-top" src="assets/img/test.jpg">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/app/assets/img/test.jpg">
                             </div>
                             <div class="card-body">
                                 <div class="card-title test">
@@ -76,7 +76,7 @@
                     <div class="col-4">
                         <div class="card content-item" id="card2">
                             <div class="card-image pic">
-                                <img class="card-img-top" src="assets/img/recipes.jpg">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/app/assets/img/recipes.jpg">
                             </div>
                             <div class="card-body">
                                 <div class="card-title recipes">
@@ -90,11 +90,11 @@
                         </div>
                     </div>
                 </a>
-                <a href="../login/sign_in.jsp" class="card-group">
+                <a href="${pageContext.request.contextPath}/login/sign_in.jsp" class="card-group">
                     <div class="col-4">
                         <div class="card content-item" id="card3">
                             <div class="card-image pic">
-                                <img class="card-img-top pic" src="assets/img/exercise.jpg">
+                                <img class="card-img-top pic" src="${pageContext.request.contextPath}/app/assets/img/exercise.jpg">
                             </div>
                             <div class="card-body">
                                 <div class="card-title exercise">
@@ -118,7 +118,7 @@
                     <div class="col-6">
                         <div class="card one content-item" id="card4">
                             <div class="card-image pic">
-                                <img class="card-img-top" src="assets/img/video.jpg">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/app/assets/img/video.jpg">
                             </div>
                             <div class="card-body">
                                 <div class="card-title video">
@@ -132,11 +132,11 @@
                         </div>
                     </div>
                 </a>
-                <a href="../login/sign_in.jsp" class="card-group">
+                <a href="${pageContext.request.contextPath}/login/sign_in.jsp" class="card-group">
                     <div class="col-6">
                         <div class="card one content-item" id="card5">
                             <div class="card-image pic">
-                                <img class="card-img-top" src="assets/img/history.jpg">
+                                <img class="card-img-top" src="${pageContext.request.contextPath}/app/assets/img/history.jpg">
                             </div>
                             <div class="card-body">
                                 <div class="card-title history">
@@ -163,8 +163,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/change_color.js"></script>
+    <script src="${pageContext.request.contextPath}/app/assets/js/app.js"></script>
+    <script src="${pageContext.request.contextPath}/app/assets/js/change_color.js"></script>
     <script src="https://kit.fontawesome.com/7adac5a862.js" crossorigin="anonymous"></script>
 </body>
 

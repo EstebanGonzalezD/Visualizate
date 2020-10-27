@@ -24,7 +24,7 @@
     <body>
         <div class="navbar">
             <nav class="navbar navbar-light fixed-top bg-light">
-                <a class="navbar-brand mx-auto" href="../index.jsp">VISUALIZATE</a>
+                <a class="navbar-brand mx-auto" href="${pageContext.request.contextPath}/app/index.jsp">VISUALIZATE</a>
                 <a href="../../login/sign_in.jsp" class="btn btn-sign_out">
                     <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
             </nav>
@@ -34,7 +34,6 @@
             try {
 
                 boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
-
                 if (status_dm) {
 
         %>
@@ -47,8 +46,8 @@
         %>
 
         <div class="btn-back">
-            <form method ="post" action="${pageContext.request.contextPath}/ServletRegistro">
-                <input type="hidden" name="pagina" value="inicio"/>
+            <form method ="post" action="${pageContext.request.contextPath}/Lobby">
+                <input type="hidden" name="pagina" value="invitado-back"/>
                 <button type="submit" class="btn"><i class="fas fa-angle-left"></i></button>         
             </form>
         </div>

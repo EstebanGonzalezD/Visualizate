@@ -1,8 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<%-- 
+    Document   : contacto.jsp
+    Created on : 26/10/2020, 05:47:46 PM
+    Author     : Esteban
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Visualízate</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -19,11 +25,15 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
-
     <body>
+        <div class="alert alert-success" id="alert-success" role="alert" style="display: none;">
+            Debes de aceptar los términos y condiciones.
+        </div>
+        <div class="alert alert-danger" id="alert-danger" role="alert" style="display: none;">
+            Debes de aceptar los términos y condiciones.
+        </div>
         <!----------------------------------------------Barra Navegación------------------------------------------------>
-        <div class="navbar">
-
+        <header class="header">
             <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light">
                 <a class="navbar-brand" href="../webPage/">VISUALÍZATE</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -33,9 +43,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto">
                         <li class="nav-item active"><a href="../webPage/" class="nav-link text-uppercase">Inicio</a></li>
-                        <li class="nav-item"><a href="../webPage/contacto.html" class="nav-link text-uppercase">Contáctanos</a></li>
-                        <li class="nav-item"><a href="../webPage/acerca.html" class="nav-link text-uppercase">Acerca de<span
+                        <li class="nav-item"><a href="../webPage/contacto.jsp" class="nav-link text-uppercase">Contáctanos<span
                                     class="sr-only">(current)</span></a></li>
+                        <li class="nav-item"><a href="../webPage/acerca.jsp" class="nav-link text-uppercase">Acerca de</a></li>
                     </ul>
                     <ul class="form-inline my-2 my-lg-0">
                         <button type="button" data-toggle="modal" data-target="#exampleModal"
@@ -45,9 +55,8 @@
                     </ul>
                 </div>
             </nav>
-
-        </div>
-        <!------------------------------------------------------Modal------------------------------------------------->
+        </header>
+        <!------------------------------------------------------Modal pop-up ------------------------------------------------->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="pop-up">
@@ -67,68 +76,59 @@
                                 class="fas fa-envelope"></i>Invitado</a>
                     </div>
                     <div class="modal-footer">
-                        <p>Aún no tienes cuenta? <a href="../login/sign_up.html">Create una aquí</a></p>
+                        <p>Aún no tienes cuenta? <a href="../login/sign_up.jsp">Create una aquí</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <!------------------------------------------------------Modal----------------------------------------------------->
+        <!------------------------------------------------------Modal pop-up----------------------------------------------------->
 
-        <!----------------------------------------------Barra Navegación---------------------------------------------------->
-
+        <!----------------------------------------------Acerca de nosotros-------------------------------------------------->
         <div class="container">
-            <div class="card">
-                <div class="card-title text-center w-100">Descripción del problema</div>
-                <hr>
-                <div class="card-body">
-                    <div class="card-text">
-                        <p>Visualízate surgió a partir de la problemática que presentan una gran parte de la población del área metropolitana ya sean niños, jóvenes, adultos y adultos mayores, la cual son los altibajos, los inconvenientes o problemas visuales y haciendo que estos provoquen determinadas complicaciones al hacer sus tareas diarias, provocando también malos hábitos al leer, y demás actividades que requieren un esfuerzo de la vista
-                            Por esta razón Visualízate les brinda una alternativa innovadora, que busca y facilita la sistematización de buenos ejercicios, recetas, recomendaciones y un diagnóstico para dichas personas; dándoles dicha información para la mejora de su vista personalizados a través de una página web</p>                        
-                    </div>
-                </div>
-            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="menu-content pb-70 col-lg-8">
+                    <div class="title text-center">
+                        <div class="card-body-about">
+                            <h1> <strong>VISUALÍZATE</strong></h1>
+                            <p>
+                                Una aplicación web informativa para ilustrar consejos y ejercicios para el mejoramiento de la salud visual
+                                de las personas.
+                            </p>
+                        </div>
 
-            <div class="card">
-                <div class="card-title text-center w-100">Objetivo General</div>
-                <hr>
-                <div class="card-body">
-                    <div class="card-text">
-                        <p>Desarrollar una aplicación web para ilustrar sobre los cuidados
-                            y ejercicios que pueden ayudan a mejorar la salud visual.</p>                        
-                    </div>
-                </div>
-                
-                
-            </div>
-            <div class="card">
-                <div class="card-title text-center w-100">Objetivos Específicos</div>
-                <hr>
-                <div class="card-body">
-                    <div class="card-text">
-                        <ol>
-                            <li>Analizar el problema y hacer una investigación profunda sobre las
-                                prevenciones y ejercicios que se deben realizar en los casos de
-                                disminución de la vista.</li> 
-                            <li>Diseñar una componente para ilustrar sobre las rutinas de ejercicios
-                                que pueden realizarse para mejorar la su visión</li>
-                            <li>Construir un módulo donde se enseña a preparar recetas que pueden
-                                ayudar a mejorar o conservar la salud visual, además de indicar los
-                                aportes nutricionales que ofrecen dichos alimentos.</li>
-                            <li>Probar el software desarrollado comprobando el mejoramiento ocular
-                                de los usuarios mediante las recomendaciones y ejercicios
-                                prolongados.</li>
-                            <li>Diseñar una historia clínica para llevar un seguimiento del avance y la
-                                mejoría que se espera obtener durante la rutina de ejercidos y la
-                                aplicación de la dieta.</li>
-                        </ol>
+                        <div class="card-body-about">
+                            <i class="fas fa-user"></i>
+                            <p>Esteban Gonzalez Duque</p>
+                            <i class="fas fa-phone"></i>
+                            <p>322 3613136</p>
+                            <i class="fas fa-envelope"></i>
+                            <p>esteban_gonzalez23201@elpoli.edu.co </p>
+                        </div>
+
+                        <div class="card-body-about">
+                            <i class="fas fa-user"></i>
+                            <p>Juan Esteban Sepúlveda</p>
+                            <i class="fas fa-phone"></i>
+                            <p>312 6087763</p>
+                            <i class="fas fa-envelope"></i>
+                            <p>juan_sepulveda23201@elpoli.edu.co </p>
+                        </div>
+
+                        <div class="card-body-about">
+                            <i class="fas fa-user"></i>
+                            <p>Daniel Camilo Pinto</p>
+                            <i class="fas fa-phone"></i>
+                            <p>305 3344484</p>
+                            <i class="fas fa-envelope"></i>
+                            <p>daniel_pinto23201@elpoli.edu.co </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!----------------------------------------------Acerca de nosotros-------------------------------------------------->
 
-
-
-        <!----------------------------------------------Segundo Contenedor (Footer)----------------------------------------->
+        <!----------------------------------------------(Footer)----------------------------------------->
         <footer class="page-footer font-small unique-color-dark">
             <div class="color">
                 <div class="container">
@@ -158,7 +158,7 @@
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
                         <h6 class="text-uppercase font-weight-bold">acerca de</h6>
                         <hr class="line accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px;">
-                        <p><a href="#!">Aplicación</a></p>
+                        <p><a href="#">Aplicación</a></p>
 
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -172,8 +172,7 @@
             </div>
 
         </footer>
-        <!----------------------------------------------Segundo Contenedor (Footer)------------------------------------------->
-
+        <!----------------------------------------------Quinto Contenedor (Footer)----------------------------------------------->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -184,7 +183,5 @@
         crossorigin="anonymous"></script>
         <script src="assets/js/animation.js"></script>
         <script src="https://kit.fontawesome.com/7adac5a862.js" crossorigin="anonymous"></script>
-
     </body>
-
 </html>

@@ -148,7 +148,20 @@ public class Lobby extends HttpServlet {
             RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
             despachador.forward(request, response);
         
-        } else {
+        } else if(pagina.equals("invitado-back")) {
+            HttpSession session = request.getSession(false);
+            String user = (String) session.getAttribute("username");
+            String password = (String) session.getAttribute("password");
+            
+            if (user == null && password
+                    == null) {
+                RequestDispatcher despachador = request.getRequestDispatcher("app/invited.jsp");
+                despachador.forward(request, response);
+            } else{
+                RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
+                despachador.forward(request, response);
+            }
+                
         }
 
     }

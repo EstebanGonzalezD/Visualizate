@@ -1,6 +1,7 @@
 package Servlets;
 
 import BaseDeDatos.Conexion;
+import Entidades.ActualizarModificarEliminar;
 import Entidades.CrearUsuario;
 import Entidades.IniciarSesion;
 import Entidades.Usuario;
@@ -22,7 +23,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -103,14 +103,14 @@ public class ServletRegistro extends HttpServlet {
 
             Conexion c = new Conexion();
             Connection con = c.getConnection();
-           
+
             int cont = 0;
             if (con != null) {
                 Statement st;
                 try {
                     st = con.createStatement();
                     try {
-                        ResultSet resultado = st.executeQuery("Select count(*) as usuarios from Usuario where nombre_usuario='"+ParamUsuario +"'");
+                        ResultSet resultado = st.executeQuery("Select count(*) as usuarios from Usuario where nombre_usuario='" + ParamUsuario + "'");
                         resultado.next();
                         cont = resultado.getInt("usuarios");
                     } catch (SQLException ex) {
@@ -145,7 +145,7 @@ public class ServletRegistro extends HttpServlet {
                 }
             } else {
                 PrintWriter out = response.getWriter();
-                out.println("El usuario que intentaste registrar, ya se encuentra registrado "+cont);
+                out.println("El usuario que intentaste registrar, ya se encuentra registrado " + cont);
             }
         } else if (pagina.equals("inicio")) {
             String ParamNombre = request.getParameter("username");
@@ -164,48 +164,59 @@ public class ServletRegistro extends HttpServlet {
             }
 
             if (sw) {
-                boolean dark_mode= false;
+                boolean dark_mode = false;
                 request.setAttribute("status_dm", dark_mode);
-            
+
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
                 despachador.forward(request, response);
             } else {
                 PrintWriter out = response.getWriter();
                 out.println("No iniciamos sesión, que depresión ");
             }
-        } else {
-            processRequest(request, response);
+            
+        } else if (pagina.equals("invitado_cont")) {
+            boolean sw = false;
+            sw = ActualizarModificarEliminar.ContadorVisitas();
+            
+            
+            if (sw) {
+                RequestDispatcher despachador = request.getRequestDispatcher("app/invited.jsp");
+                despachador.forward(request, response);
+            }else{
+                RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
+                despachador.forward(request, response);
+            }
         }
 
     }
-    
-    public boolean enviarCorreo(String para){
+
+    public boolean enviarCorreo(String para) {
         String de = "visualizateqa@gmail.com";
         String clave = "yLt2*62s";
         String asunto = "¡Bienvenido a Visualízate!";
         String mensaje = "Te has registrado correctamente. Ahora puedes acceder a todos los beneficios personalizados.";
         boolean enviado = false;
-     
-            try{
-            
-                String host = "smtp.gmail.com";
-                
-                Properties prop = System.getProperties();
-                
-                prop.put("mail.smtp.starttls.enable","true");
-                prop.put("mail.smtp.host", host);
-                prop.put("mail.smtp.user",de);
-                prop.put("mail.smtp.password", clave);
-                prop.put("mail.smtp.port",587);
-                prop.put("mail.smtp.auth","true");
-                
-                Session sesion = Session.getDefaultInstance(prop,null);
-                
-                MimeMessage message = new MimeMessage(sesion);
-                
-                message.setFrom(new InternetAddress(de));
-                
-                /*
+
+        try {
+
+            String host = "smtp.gmail.com";
+
+            Properties prop = System.getProperties();
+
+            prop.put("mail.smtp.starttls.enable", "true");
+            prop.put("mail.smtp.host", host);
+            prop.put("mail.smtp.user", de);
+            prop.put("mail.smtp.password", clave);
+            prop.put("mail.smtp.port", 587);
+            prop.put("mail.smtp.auth", "true");
+
+            Session sesion = Session.getDefaultInstance(prop, null);
+
+            MimeMessage message = new MimeMessage(sesion);
+
+            message.setFrom(new InternetAddress(de));
+
+            /*
                     
                     NOTA: para enviar correo electronico masivo
                 
@@ -218,27 +229,26 @@ public class ServletRegistro extends HttpServlet {
                         message.addRecipient(Message.RecipientType.TO, direcciones[i]);
                     }
                 
-                */
-                
-                message.setRecipient(Message.RecipientType.TO, new InternetAddress(para));
-                
-                message.setSubject(asunto);
-                message.setText(mensaje);
-                
-                Transport transport = sesion.getTransport("smtp");
-                
-                transport.connect(host,de,clave);
-                
-                transport.sendMessage(message, message.getAllRecipients());
-                
-                transport.close();
-                
-                enviado = true;
-                
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        
+             */
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(para));
+
+            message.setSubject(asunto);
+            message.setText(mensaje);
+
+            Transport transport = sesion.getTransport("smtp");
+
+            transport.connect(host, de, clave);
+
+            transport.sendMessage(message, message.getAllRecipients());
+
+            transport.close();
+
+            enviado = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return enviado;
     }
 

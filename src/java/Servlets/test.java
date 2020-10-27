@@ -296,7 +296,7 @@ public class test extends HttpServlet {
 
                 }
 
-                sw2 = ActualizarModificarEliminar.InsertarRespuestasTest(22, irespuesta1, irespuesta2, irespuesta3, irespuesta4, irespuesta5, irespuesta6, irespuesta7, irespuesta8, irespuesta9, irespuesta10);
+                sw2 = ActualizarModificarEliminar.InsertarRespuestasTest(contador, irespuesta1, irespuesta2, irespuesta3, irespuesta4, irespuesta5, irespuesta6, irespuesta7, irespuesta8, irespuesta9, irespuesta10);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -318,23 +318,18 @@ public class test extends HttpServlet {
             despachador.forward(request, response);
 
         } else if (pagina.equals("signout")) {
-
             HttpSession sesion = request.getSession(false);
             sesion.removeAttribute("username");
             sesion.removeAttribute("password");
             sesion.removeAttribute("puntaje");
             sesion.invalidate();
-
             response.sendRedirect("login/sign_in.jsp");
 
         } else if (pagina.equals("pre_recomendaciones")) {
-
             HttpSession sesion = request.getSession(false);
             String user = (String) sesion.getAttribute("username");
-
             Conexion c = new Conexion();
             Connection con = c.getConnection();
-
             int puntaje = 0;
             int id = 0;
             String nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento;
@@ -348,11 +343,9 @@ public class test extends HttpServlet {
                 ResultSet usuarios = st.executeQuery("Select * from seguimiento where usuario_id_usuario='" + id + "'");
 
                 while (usuarios.next()) {
-
                     id_test = usuarios.getInt("ID_TEST");
                     fecha = usuarios.getString("FECHA").split(" ")[0];
                     puntaje = usuarios.getInt("PUNTAJE");
-
                 }
 
                 st.close();
@@ -493,9 +486,7 @@ public class test extends HttpServlet {
             HttpSession sesion = request.getSession(false);
             sesion.setAttribute("puntaje2", puntaje);
             String user = (String) sesion.getAttribute("username");
-
             boolean sw = false;
-
             try {
                 sw = ActualizarModificarEliminar.ActualizarElPuntaje2(user, puntaje);
             } catch (SQLException ex) {
@@ -503,9 +494,6 @@ public class test extends HttpServlet {
             }
 
             if (sw) {
-                /*
-                RequestDispatcher desparchador = request.getRequestDispatcher("webPage/index.html");
-                desparchador.forward(request, response);*/
                 PrintWriter out = response.getWriter();
                 out.println("Perfectisisisisisimo " + user + " " + puntaje);
             } else {
@@ -513,8 +501,6 @@ public class test extends HttpServlet {
                 out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud. Lamentablesisisisisimo" + user + " " + puntaje);
             }
 
-            /*PrintWriter out = response.getWriter();
-            out.println("El usuario"+puntaje);*/
             RequestDispatcher despachador = request.getRequestDispatcher("app/resultado_test2.jsp");
             despachador.forward(request, response);
 

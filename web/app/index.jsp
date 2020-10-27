@@ -33,7 +33,7 @@
         </div>
         <!--Navbar-->
         <nav class="navbar navbar-light fixed-top bg-light" style="display:none;">
-            <a class="navbar-brand mx-auto" href="../webPage/index.html">VISUALÍZATE</a>
+            <a class="navbar-brand mx-auto" href="${pageContext.request.contextPath}/app/index.jsp">VISUALÍZATE</a>
             <form method="POST" action="${pageContext.request.contextPath}/test">
                 <input type="hidden" name="pagina" value="signout">
 

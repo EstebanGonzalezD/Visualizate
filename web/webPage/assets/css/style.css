@@ -76,6 +76,11 @@ font-size:1.10em;
 .modal .modal-content span{
     color:#fff;
 }
+
+.invited{
+  padding-bottom: 31px;  
+}
+
 .modal-body .user, .modal-body .admin, .modal-body .invited{
     width:100%;
     margin:10px 0 10px 0;

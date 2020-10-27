@@ -6,10 +6,13 @@
 package Entidades;
 
 import BaseDeDatos.Conexion;
+import Servlets.test;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jms.Session;
 
 /**
@@ -140,7 +143,7 @@ public class ActualizarModificarEliminar {
         Connection con = c.getConnection();
         ResultSet rs = null;
         Statement st = con.createStatement();
-        rs = st.executeQuery("select id_usuario from Usuario where usuario='"+usuario+"'");
+        rs = st.executeQuery("select id_usuario from Usuario where usuario='" + usuario + "'");
 
         if (rs != null) {
             while (rs.next()) {
@@ -209,4 +212,40 @@ public class ActualizarModificarEliminar {
         return agregado;
     }
 
+    public static boolean ContadorVisitas() throws SQLException {
+
+        boolean agregado = false;
+        boolean sw = false;
+        int cont = 0;
+
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        ResultSet rs = null;
+        Statement st = con.createStatement();
+        rs = st.executeQuery("Select cont_invitados from cont_visitas");
+
+        if (rs != null) {
+            while (rs.next()) {
+                cont = rs.getInt(1);
+                cont = cont + cont;
+                sw = ContVisitasSupport(cont);
+                if (sw) {
+                    agregado = true;
+                }
+            }
+
+        }
+        return agregado;
+    }
+
+    public static boolean ContVisitasSupport(int cont) throws SQLException {
+        boolean status = false;
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        ResultSet rs = null;
+        Statement st = con.createStatement();
+        st.executeUpdate("update cont_visitas set cont_invitados="+5+"");
+        
+        return status;
+    }
 }
