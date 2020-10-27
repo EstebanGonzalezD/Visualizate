@@ -181,23 +181,17 @@ public class ServletRegistro extends HttpServlet {
             
             try {
                 sw = ActualizarModificarEliminar.ContadorVisitas();
+                
             } catch (SQLException ex) {
                 Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }
 
             if (sw) {
-                /*RequestDispatcher despachador = request.getRequestDispatcher("app/invited.jsp");
-                despachador.forward(request, response);*/
-
-                PrintWriter out = response.getWriter();
-                out.println("Es el valor que esperamos");
+                RequestDispatcher despachador = request.getRequestDispatcher("app/invited.jsp");
+                despachador.forward(request, response);
             } else {
-                PrintWriter out = response.getWriter();
-                out.println("Es el valor que no esperamos");
-                /*
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
-                despachador.forward(request, response);¨*/
-
+                despachador.forward(request, response);
             }
         }
 

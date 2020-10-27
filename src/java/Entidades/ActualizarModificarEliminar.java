@@ -221,19 +221,22 @@ public class ActualizarModificarEliminar {
         ResultSet rs = null;
         Statement st = con.createStatement();
         rs = st.executeQuery("Select cont_invitados from cont_visitas");
+        if (con != null) {
+            if (rs != null) {
+                while (rs.next()) {
+                    cont = rs.getInt(1);
+                }
+                cont = cont + 1;
+                sw = ContVisitasSupport(cont);
+                if (sw) {
+                    agregado = true;
+                }
+                c.desconexion();
 
-        if (rs != null) {
-            while (rs.next()) {
-                cont = rs.getInt(1);
             }
-            cont = cont + 1;
-            sw = ContVisitasSupport(cont);
-            if (sw) {
-                agregado = true;
-            }
-            c.desconexion();
-
+            st.close();
         }
+        c.desconexion();
         return agregado;
     }
 
@@ -244,7 +247,7 @@ public class ActualizarModificarEliminar {
         if (con != null) {
             Statement st;
             st = con.createStatement();
-            st.executeUpdate("update cont_visitas set cont_invitados='" + cont + "'");
+            st.executeQuery("update cont_visitas set cont_invitados='" + cont + "'");
             status = true;
             st.close();
         }
