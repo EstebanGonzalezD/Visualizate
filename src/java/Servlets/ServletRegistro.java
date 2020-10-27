@@ -2,6 +2,7 @@ package Servlets;
 
 import BaseDeDatos.Conexion;
 import Entidades.ActualizarModificarEliminar;
+import static Entidades.ActualizarModificarEliminar.ContVisitasSupport;
 import Entidades.CrearUsuario;
 import Entidades.IniciarSesion;
 import Entidades.Usuario;
@@ -173,18 +174,30 @@ public class ServletRegistro extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.println("No iniciamos sesión, que depresión ");
             }
-            
+
         } else if (pagina.equals("invitado_cont")) {
             boolean sw = false;
-            sw = ActualizarModificarEliminar.ContadorVisitas();
+            int cont = 0;
             
-            
+            try {
+                sw = ActualizarModificarEliminar.ContadorVisitas();
+            } catch (SQLException ex) {
+                Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             if (sw) {
-                RequestDispatcher despachador = request.getRequestDispatcher("app/invited.jsp");
-                despachador.forward(request, response);
-            }else{
+                /*RequestDispatcher despachador = request.getRequestDispatcher("app/invited.jsp");
+                despachador.forward(request, response);*/
+
+                PrintWriter out = response.getWriter();
+                out.println("Es el valor que esperamos");
+            } else {
+                PrintWriter out = response.getWriter();
+                out.println("Es el valor que no esperamos");
+                /*
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
-                despachador.forward(request, response);
+                despachador.forward(request, response);¨*/
+
             }
         }
 

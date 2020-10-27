@@ -213,11 +213,9 @@ public class ActualizarModificarEliminar {
     }
 
     public static boolean ContadorVisitas() throws SQLException {
-
         boolean agregado = false;
         boolean sw = false;
         int cont = 0;
-
         Conexion c = new Conexion();
         Connection con = c.getConnection();
         ResultSet rs = null;
@@ -227,12 +225,13 @@ public class ActualizarModificarEliminar {
         if (rs != null) {
             while (rs.next()) {
                 cont = rs.getInt(1);
-                cont = cont + cont;
-                sw = ContVisitasSupport(cont);
-                if (sw) {
-                    agregado = true;
-                }
             }
+            cont = cont + 1;
+            sw = ContVisitasSupport(cont);
+            if (sw) {
+                agregado = true;
+            }
+            c.desconexion();
 
         }
         return agregado;
@@ -242,10 +241,15 @@ public class ActualizarModificarEliminar {
         boolean status = false;
         Conexion c = new Conexion();
         Connection con = c.getConnection();
-        ResultSet rs = null;
-        Statement st = con.createStatement();
-        st.executeUpdate("update cont_visitas set cont_invitados="+5+"");
-        
+        if (con != null) {
+            Statement st;
+            st = con.createStatement();
+            st.executeUpdate("update cont_visitas set cont_invitados='" + cont + "'");
+            status = true;
+            st.close();
+        }
+        c.desconexion();
+
         return status;
     }
 }
