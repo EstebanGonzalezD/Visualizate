@@ -70,7 +70,7 @@
                      la manzanilla es un clásico en el cuidado de los ojos "
                      >
                     <div class="item-contenido">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><img src="img/teManzanilla.jpg" alt="">  </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalManzanilla"><img src="img/teManzanilla.jpg" alt="" class="img">  </button>
                         <p>Té de Manzanilla</p>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                      tratar la inflamación de los párpados"
                      >
                     <div class="item-contenido">
-                        <img src="img/santolina.jpg" alt="">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalSantolina"><img src="img/santolina.jpg" alt="" class="img">  </button>
                         <p>Té de Santolina</p>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                      data-descripcion="3.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/arandanos.jpg" alt="">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalArandanos"><img src="img/arandanos.jpg" alt="" class="img">  </button>
                         <p>Arándanos</p>
                     </div>
                 </div>
@@ -110,8 +110,8 @@
                      data-descripcion="4.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/zanahoria.jpg" alt="">
-                        <p>Comidas con Zanahoria</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalZanahoria"><img src="img/zanahoria.jpg" alt="" class="img">  </button>
+                        <p>Zanahoria</p>
                     </div>
                 </div>
 
@@ -122,8 +122,8 @@
                      data-descripcion="5.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/aciano.jpg" alt="">
-                        <p>Bebida de Aciano</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAciano"><img src="img/aciano.jpg" alt="" class="img">  </button>
+                        <p>Aciano</p>
                     </div>
                 </div>
 
@@ -134,18 +134,21 @@
                      data-descripcion="6.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/pepino.jpg" alt="">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalPepino"><img src="img/pepino.jpg" alt="" class="img">  </button>
                         <p>Comidas con Pepino</p>
                     </div>
                 </div>
 
+                
+                 <!Platillo>
                 <div class="item"
-                     data-categoria="paisajes"
-                     data-etiquetas="paisajes montañas niebla"
+                     data-categoria="platillos"
+                     data-etiquetas="zanahoria pepino ensalada"
                      data-descripcion="7.- Lorem ipsum dolor sit amet consectetur."
                      >
                     <div class="item-contenido">
-                        <img src="img/paisaje2.png" alt="">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalPepino"><img src="img/zanahoriaPepino.jpg" alt="" class="img">  </button>
+                        <p>Ensalada de con Zanahoria  <br>y Pepino</p>
                     </div>
                 </div>
 
@@ -179,8 +182,10 @@
                 <p class="descripcion"></p>
             </section>
 
+            
+            
             <!-- Modal Manzanilla -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="ModalManzanilla" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -215,9 +220,264 @@
                     </div>
                 </div>
             </div>
+            
+            
+            
+            <!-- Modal Santolina -->
+            <div class="modal fade" id="ModalSantolina" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Té de Santolina <i class="fas fa-coffee"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>  Es un tipo de manzanilla que se recomienda para tratar la inflamación de los párpados, la
+                            vista cansada y la irritación ocular. Como en el caso anterior, se puede utilizar en forma
+                            de colirio o baño ocular.</p>
+
+                            <center>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSantolina" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ciudad
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonSantolina">
+                                        <a class="dropdown-item" id="medellin" onclick="ubicacionSantolina(this.id)";>Medellín</a>
+                                        <a class="dropdown-item" id="bogota" onclick="ubicacionSantolina(this.id)";>Bogotá</a>
+                                        <a class="dropdown-item" id="cali" onclick="ubicacionSantolina(this.id)";>Cáli</a>
+                                    </div>
+                                </div>
+                            </center>
+
+                            <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaSantolina"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <!-- Modal Arandanos -->
+            <div class="modal fade" id="ModalArandanos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Arándanos <i class="fas fa-cookie"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>  Los arándanos son una medicina natural para la visión de tus ojos porque son ricos en
+                            antioxidantes que ayudan a reparar las células nerviosas de la retina. Mejor tomarlos crudos
+                            o deshidratados.</p>
+
+                            <center>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonArandanos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ciudad
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonArandanos">
+                                        <a class="dropdown-item" id="medellin" onclick="ubicacionArandanos(this.id)";>Medellín</a>
+                                        <a class="dropdown-item" id="bogota" onclick="ubicacionArandanos(this.id)";>Bogotá</a>
+                                        <a class="dropdown-item" id="cali" onclick="ubicacionArandanos(this.id)";>Cáli</a>
+                                    </div>
+                                </div>
+                            </center>
+
+                            <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaArandanos"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+            
+            
+            <!-- Modal Zanahoria -->
+            <div class="modal fade" id="ModalZanahoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Zanahoria <i class="fas fa-carrot"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>   Rica en vitamina A, que es necesaria para la visión en ambientes con poca iluminación.
+                            Además, gracias a su riqueza en carotenos, ejerce un efecto reparador. Podrás consumirla
+                            picando una o dos zanahorias junto con un trozo de apio y agua hasta obtener una pasta. Se
+                            empapa una gasa o algodón con esta pasta y se aplica sobre los párpados y el contorno de
+                            ojos.</p>
+
+                            <center>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonZanahoria" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ciudad
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonZanahoria">
+                                        <a class="dropdown-item" id="medellin" onclick="ubicacionZanahoria(this.id)";>Medellín</a>
+                                        <a class="dropdown-item" id="bogota" onclick="ubicacionZanahoria(this.id)";>Bogotá</a>
+                                        <a class="dropdown-item" id="cali" onclick="ubicacionZanahoria(this.id)";>Cáli</a>
+                                    </div>
+                                </div>
+                            </center>
+
+                            <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaZanahoria"></iframe>
+                        </div>
+                        <div class="modal-footer">
+   
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <a href="https://cookpad.com/co/buscar/zanahoria%20arandano"><button type="button" class="btn btn-secondary">Recetas</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            <!-- Modal Pepino -->
+            <div class="modal fade" id="ModalPepino" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Comidas con Pepino <i class="fas fa-carrot"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>  El pepino en rodajas ayuda a aliviar el hinchazón de los ojos. El pepino tiene grandes
+                            propiedades y vitaminas que nutren la piel alrededor de los ojos e incluso pueden reducir la
+                            aparición de arrugas. Solo debes cortar un pepino en rebanadas y colocártelo sobre los ojos.
+                            Dejar actuar por unos 20 minutos. Luego, enjuagar con agua fría.</p>
+
+                            <center>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonPepino" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ciudad
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonPepino">
+                                        <a class="dropdown-item" id="medellin" onclick="ubicacionPepino(this.id)";>Medellín</a>
+                                        <a class="dropdown-item" id="bogota" onclick="ubicacionPepino(this.id)";>Bogotá</a>
+                                        <a class="dropdown-item" id="cali" onclick="ubicacionPepino(this.id)";>Cáli</a>
+                                    </div>
+                                </div>
+                            </center>
+
+                            <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaPepino"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+              <!-- Modal Aciano-->
+            <div class="modal fade" id="ModalAciano" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Aciano <i class="fas fa-coffee"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>  El agua de aciano es muy efectivo para fortalecer y conservar la vista, sobre todo en las
+                            personas de edad avanzada. Sus maravillosos efectos consisten en que muchas de sus
+                            propiedades fomentan y mejoran la circulación capilar del ojo, aliviando la vista cansada y
+                            la irritación ocular. Se puede tomar en infusión o aplicarla por vía típica en compresas o
+                            colirios.</p>
+
+                            <center>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonAciano" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ciudad
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonAciano">
+                                        <a class="dropdown-item" id="medellin" onclick="ubicacionAciano(this.id)";>Medellín</a>
+                                        <a class="dropdown-item" id="bogota" onclick="ubicacionAciano(this.id)";>Bogotá</a>
+                                        <a class="dropdown-item" id="cali" onclick="ubicacionAciano(this.id)";>Cáli</a>
+                                    </div>
+                                </div>
+                            </center>
+
+                            <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaAciano"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              
+              
+              
+              
+              <!-- Modal Platillo Zanahoria y Pepino -->
+            <div class="modal fade" id="ModalZanahoriaPepino" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Ensalada con zanahoria y pepino <i class="far fa-salad"></i></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>   La ensalada de pepino y zanahoria rallada es fresca, colorida y sabrosa, ideal para 
+                                disfrutar en cualquier época del año.  Dos verduras que suelen pasar desapercibidas y 
+                                se acoplan muy bien en una misma receta, ofreciendo saciedad. Para agregar valor a este
+                                plato, unas pasas de uva ligeramente dulces junto a las nueces, que aportan un toque 
+                                crujiente. En el mundo de las ensaladas no todo se resume a lechuga y tomate.</p>
+
+                            
+                            <center>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonZanahoria" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Ciudad
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonZanahoria">
+                                        <a class="dropdown-item" id="medellin" onclick="ubicacionZanahoria(this.id)";>Medellín</a>
+                                        <a class="dropdown-item" id="bogota" onclick="ubicacionZanahoria(this.id)";>Bogotá</a>
+                                        <a class="dropdown-item" id="cali" onclick="ubicacionZanahoria(this.id)";>Cáli</a>
+                                    </div>
+                                </div>
+                            </center>
+
+                            <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaZanahoria"></iframe>
+                        </div>
+                        <div class="modal-footer">
+   
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <a href="https://cookpad.com/co/buscar/zanahoria%20arandano" target="_blank"><button type="button" class="btn btn-secondary">Recetas</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-
+            
+            
+            
+            
+            
             <footer class="contenedor">
                 <div class="redes-sociales">
                     <div class="contenedor-icono">
