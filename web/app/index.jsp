@@ -37,7 +37,7 @@
             <form method="POST" action="${pageContext.request.contextPath}/test">
                 <input type="hidden" name="pagina" value="signout">
 
-                <input id="login_btn" type="submit" value="Cerrar Sesión" class="btn btn-sign_out">
+                <input id="login_btn" name="out" type="submit" value="Cerrar Sesión" class="btn btn-sign_out">
 
             </form>
         </nav>
@@ -59,9 +59,8 @@
             }
         %>
         <!-- Modal -->
-
-
-
+     
+        
         <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -220,7 +219,7 @@
                     </a>
                     <a href="${pageContext.request.contextPath}/app/historial.jsp" class="card-group">
                         <div class="col-6">
-                            <div class="card one content-item" id="card5">
+                            <div class="card one content-item" id="card5" >
                                 <div class="card-image pic">
                                     <img class="card-img-top" src="${pageContext.request.contextPath}/app/assets/img/history.jpg">
                                 </div>
@@ -231,7 +230,7 @@
                                     <p>Mira aqui el historial de todos los test que has hecho y mira los resultados desde que has estado con nuestros, si has mejorado o no ha hecho ningún cambio.</p>
                                 </div>
                                 <div class="card-footer">
-                                    <a class="btn btn-blue">Analizarme</a>
+                                    <a id="seguimiento" class="btn btn-blue">Analizarme</a>
                                 </div>
                             </div>
                         </div>

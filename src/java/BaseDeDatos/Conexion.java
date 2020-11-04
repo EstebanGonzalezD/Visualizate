@@ -13,6 +13,7 @@ public class Conexion {
     private static String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 
     public static Connection getConnection() {
+        
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conn = DriverManager.getConnection(url, user, password);
