@@ -63,7 +63,7 @@
                                 ¿Ve doble y/o borroso al leer?
                             </p>
                             <div class="form-check radio-item">
-                                <input type="radio" id="op1_p1" name="respuesta-p1" value="A">
+                                <input type="radio" id="op1_p1" name="respuesta-p1" value="A"></input>
                                 <label for="op1_p1">No</label>
                             </div>
                             <div class="form-check radio-item">

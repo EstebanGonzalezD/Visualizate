@@ -62,7 +62,7 @@
         <div class="col text-center">
             <form method="post" action="../Lobby">
                 <input type="hidden" name="pagina" value="pre_test">
-                <input type="submit" value="Empezar test" class="btn btn-start-test">
+                <input id="start_test" type="submit" value="Empezar test" class="btn btn-start-test">
             </form>
             
         </div>
