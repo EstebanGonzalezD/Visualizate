@@ -6,7 +6,7 @@
 package Servlets;
 
 import BaseDeDatos.Conexion;
-import Entidades.ActualizarModificarEliminar;
+import Entidades.Procedimientos;
 import Entidades.CrearUsuario;
 import Entidades.Usuario;
 import java.io.IOException;
@@ -167,7 +167,7 @@ public class Administracion extends HttpServlet {
             boolean sw = false;
 
             try {
-                sw = ActualizarModificarEliminar.EliminarUsuario(ParamUsuario);
+                sw = Procedimientos.EliminarUsuario(ParamUsuario);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -221,7 +221,7 @@ public class Administracion extends HttpServlet {
             boolean sw = false;
 
             try {
-                sw = ActualizarModificarEliminar.ActualizarElCorreo(ParamUsuario, ParamCorreo);
+                sw = Procedimientos.ActualizarElCorreo(ParamUsuario, ParamCorreo);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -271,7 +271,7 @@ public class Administracion extends HttpServlet {
             boolean sw = false;
 
             try {
-                sw = ActualizarModificarEliminar.BuscarUsuario(ParamUsuario);
+                sw = Procedimientos.BuscarUsuario(ParamUsuario);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }

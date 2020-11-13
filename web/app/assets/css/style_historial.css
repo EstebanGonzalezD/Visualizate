@@ -29,7 +29,7 @@
     margin-top:20px;
     background:#fff;
     box-shadow: -21.213px 21.213px 30px 23px rgba(212, 212, 212, 0.3);
-    border:1px solid #000;
+    border:1px;
     border-radius:5px;
     padding:20px;
 }
@@ -46,18 +46,19 @@
     color:#fff;
 }
 h1,h2{
-    font-weight: 300;
-    font-size:50px;
+    font-weight: 300px;
+    font-family: var;
+    font-size:40px;
     color:#fff;
-    background: rgb(4, 130, 141);
-    border-radius:5px;
+    background: rgb(4, 112, 42);
+    border-radius:30px;
 }
 p{
-    font-size:20px;
+    font-size:18px;
     color:#000;
 }
 span{
-    color:rgb(65, 103, 165);
+    color:rgb(17, 186, 76);
     text-transform: uppercase;
 }
 .test{

@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import BaseDeDatos.Conexion;
-import Entidades.ActualizarModificarEliminar;
+import Entidades.Procedimientos;
 import Entidades.CrearUsuario;
 import Entidades.Usuario;
 import java.io.IOException;
@@ -15,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -24,21 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Esteban
- */
 public class test extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -56,29 +39,12 @@ public class test extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -105,8 +71,7 @@ public class test extends HttpServlet {
                     }
 
                 }
-                /*
-                id = ActualizarModificarEliminar.ObtenerID(user);*/
+
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -281,7 +246,7 @@ public class test extends HttpServlet {
             boolean sw2 = false;
 
             try {
-                sw = ActualizarModificarEliminar.InsertarPuntajeTest(id, user, puntaje);
+                sw = Procedimientos.InsertarPuntajeTest(id, user, puntaje);
 
                 Conexion c = new Conexion();
                 Connection con = c.getConnection();
@@ -296,32 +261,34 @@ public class test extends HttpServlet {
 
                 }
 
-                sw2 = ActualizarModificarEliminar.InsertarRespuestasTest(contador, irespuesta1, irespuesta2, irespuesta3, irespuesta4, irespuesta5, irespuesta6, irespuesta7, irespuesta8, irespuesta9, irespuesta10);
+                sw2 = Procedimientos.InsertarRespuestasTest(contador, irespuesta1, irespuesta2, irespuesta3, irespuesta4, irespuesta5, irespuesta6, irespuesta7, irespuesta8, irespuesta9, irespuesta10);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            if (sw) {
-                /*
-                RequestDispatcher desparchador = request.getRequestDispatcher("webPage/index.html");
-                desparchador.forward(request, response);*/
-                PrintWriter out = response.getWriter();
-                out.println("Perfectisisisisisimo " + user + " " + puntaje);
+            if (sw && sw2) {
+                try {
+                    String arregloFechas[] = Procedimientos.GraficoFecha(user);
+                    int arregloPuntajes[] = Procedimientos.GraficoPuntaje(user);
+                    sesion.setAttribute("arregloFechas", arregloFechas);
+                    sesion.setAttribute("arregloPuntajes", arregloPuntajes);
+                    RequestDispatcher despachador = request.getRequestDispatcher("app/resultado_test.jsp");
+                    despachador.forward(request, response);
+                } catch (ParseException ex) {
+                    Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } else {
                 PrintWriter out = response.getWriter();
-                out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud. Lamentablesisisisisimo" + user + " " + puntaje);
+                out.println("Error: Test (309)");
             }
-
-            /*PrintWriter out = response.getWriter();
-            out.println("El usuario"+puntaje);*/
-            RequestDispatcher despachador = request.getRequestDispatcher("app/resultado_test.jsp");
-            despachador.forward(request, response);
 
         } else if (pagina.equals("signout")) {
             HttpSession sesion = request.getSession(false);
             sesion.removeAttribute("username");
             sesion.removeAttribute("password");
             sesion.removeAttribute("puntaje");
+            sesion.removeAttribute("arregloFechas");
+            sesion.removeAttribute("arr+egloPuntajes");
             sesion.invalidate();
             response.sendRedirect("login/sign_in.jsp");
 
@@ -337,7 +304,7 @@ public class test extends HttpServlet {
             int id_test;
 
             try {
-                id = ActualizarModificarEliminar.ObtenerID(user);
+                id = Procedimientos.ObtenerID(user);
                 Statement st;
                 st = con.createStatement();
                 ResultSet usuarios = st.executeQuery("Select * from seguimiento where usuario_id_usuario='" + id + "'");
@@ -488,7 +455,7 @@ public class test extends HttpServlet {
             String user = (String) sesion.getAttribute("username");
             boolean sw = false;
             try {
-                sw = ActualizarModificarEliminar.ActualizarElPuntaje2(user, puntaje);
+                sw = Procedimientos.ActualizarElPuntaje2(user, puntaje);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -512,8 +479,3 @@ public class test extends HttpServlet {
 
     }
 }
-/**
- * Returns a short description of the servlet.
- *
- * @return a String containing servlet description
- */

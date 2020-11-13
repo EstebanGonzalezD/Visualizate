@@ -6,7 +6,7 @@
 package Servlets;
 
 import BaseDeDatos.Conexion;
-import Entidades.ActualizarModificarEliminar;
+import Entidades.Procedimientos;
 import Entidades.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;

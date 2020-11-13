@@ -1,8 +1,8 @@
 package Servlets;
 
 import BaseDeDatos.Conexion;
-import Entidades.ActualizarModificarEliminar;
-import static Entidades.ActualizarModificarEliminar.ContVisitasSupport;
+import Entidades.Procedimientos;
+import static Entidades.Procedimientos.ContVisitasSupport;
 import Entidades.CrearUsuario;
 import Entidades.IniciarSesion;
 import Entidades.Usuario;
@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.Date;
 
 import java.util.logging.Level;
@@ -55,32 +56,7 @@ public class ServletRegistro extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        /*
-        String pagina = request.getParameter("pagina");
 
-        if (pagina.equals("inicio")) {
-            String ParamNombre = request.getParameter("nombre");
-            String ParamContraseña = request.getParameter("contraseñaa");
-
-            boolean sw = false;
-            
-            try {
-                sw = IniciarSesion.Login(ParamNombre, ParamContraseña);
-            } catch (SQLException ex) {
-                Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            if (sw) {
-                PrintWriter out = response.getWriter();
-                out.println("Has iniciado sesión correctamente");
-            } else {
-                PrintWriter out = response.getWriter();
-                out.println("No iniciamos sesión, que depresión");
-            }
-        }else {
-            processRequest(request, response);
-        }
-         */
     }
 
     @Override
@@ -152,11 +128,6 @@ public class ServletRegistro extends HttpServlet {
             String ParamNombre = request.getParameter("username");
             String ParamContraseña = request.getParameter("password");
 
-            HttpSession sesion = request.getSession();
-
-            sesion.setAttribute("username", ParamNombre);
-            sesion.setAttribute("password", ParamContraseña);
-
             boolean sw = false;
             try {
                 sw = IniciarSesion.Login(ParamNombre, ParamContraseña);
@@ -165,9 +136,23 @@ public class ServletRegistro extends HttpServlet {
             }
 
             if (sw) {
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("username", ParamNombre);
+                sesion.setAttribute("password", ParamContraseña);
+                
                 boolean dark_mode = false;
                 request.setAttribute("status_dm", dark_mode);
-
+                
+                try {
+                    String arregloFechas[] = Procedimientos.GraficoFecha(ParamNombre);
+                    int arregloPuntajes[] = Procedimientos.GraficoPuntaje(ParamNombre);
+                    sesion.setAttribute("arregloFechas", arregloFechas);
+                    sesion.setAttribute("arregloPuntajes", arregloPuntajes);
+                } catch (ParseException ex) {
+                    Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
                 despachador.forward(request, response);
             } else {
@@ -178,10 +163,10 @@ public class ServletRegistro extends HttpServlet {
         } else if (pagina.equals("invitado_cont")) {
             boolean sw = false;
             int cont = 0;
-            
+
             try {
-                sw = ActualizarModificarEliminar.ContadorVisitas();
-                
+                sw = Procedimientos.ContadorVisitas();
+
             } catch (SQLException ex) {
                 Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
             }

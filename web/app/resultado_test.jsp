@@ -23,7 +23,8 @@
             }else{
             
         %>
-        <span>
+        <p id="text_result">Resultados</p>
+        <span> 
             Usuario: <%=username%> <br>
             Puntaje: <%=puntaje%> <br>
             ID: <%=id%> <br>

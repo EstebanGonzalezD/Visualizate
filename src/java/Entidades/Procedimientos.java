@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entidades;
 
 import BaseDeDatos.Conexion;
@@ -11,6 +6,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.jms.Session;
@@ -19,7 +18,7 @@ import javax.jms.Session;
  *
  * @author Esteban
  */
-public class ActualizarModificarEliminar {
+public class Procedimientos {
 
     public static boolean ActualizarElPuntaje(String usuario, int puntaje) throws SQLException {
 
@@ -158,15 +157,17 @@ public class ActualizarModificarEliminar {
 
     public static boolean InsertarPuntajeTest(int id, String usuario, int puntaje) throws SQLException {
 
-        boolean agregado = false;
+        Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
 
+        boolean agregado = false;
         Conexion c = new Conexion();
         Connection con = c.getConnection();
 
         if (con != null) {
             Statement st;
             st = con.createStatement();
-            st.executeUpdate("INSERT INTO SEGUIMIENTO(PUNTAJE,FECHA,USUARIO_ID_USUARIO) VALUES ('" + puntaje + "','19/10/2020','" + id + "')");
+            st.executeUpdate("INSERT INTO SEGUIMIENTO(PUNTAJE,FECHA,USUARIO_ID_USUARIO) VALUES ('" + puntaje + "','" + formateador.format(ahora) + "','" + id + "')");
             agregado = true;
             st.close();
         }
@@ -255,4 +256,72 @@ public class ActualizarModificarEliminar {
 
         return status;
     }
+
+    public static String[] GraficoFecha(String usuario) throws ParseException, SQLException {
+        int tam = GraficoTamaño(usuario);
+        int cont = 0;
+        String arr[] = new String[tam];
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        try {
+            Statement st;
+            st = con.createStatement();
+            ResultSet fechas = st.executeQuery("SELECT * FROM usuario INNER JOIN seguimiento ON usuario.id_usuario=seguimiento.usuario_id_usuario where usuario.usuario = '" + usuario + "' order by seguimiento.id_test asc");
+            while (fechas.next()) {
+                String date_s = fechas.getString("FECHA");
+                SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                Date date = dt.parse(date_s);
+                SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
+                arr[cont] = dt1.format(date);
+                cont++;
+            }
+            st.close();
+        } catch (SQLException e) {
+
+        }
+        return arr;
+    }
+
+    public static int[] GraficoPuntaje(String usuario) throws ParseException, SQLException {
+        int tam = GraficoTamaño(usuario);
+        
+        int cont = 0;
+        int arr2[] = new int[tam];
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        try {
+            Statement st;
+            st = con.createStatement();
+            ResultSet fechas = st.executeQuery("SELECT * FROM usuario INNER JOIN seguimiento ON usuario.id_usuario=seguimiento.usuario_id_usuario where usuario.usuario = '" + usuario + "' order by seguimiento.id_test asc");
+            while (fechas.next()) {
+                arr2[cont] = fechas.getInt("PUNTAJE");
+                cont++;
+            }
+            st.close();
+        } catch (SQLException e) {
+
+        }
+        return arr2;
+    }
+
+    public static int GraficoTamaño(String usuario) throws SQLException {
+
+        int tam = 0;
+
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+
+        if (con != null) {
+            Statement st;
+            st = con.createStatement();
+            ResultSet tamaño_consulta = st.executeQuery("SELECT count(id_test) FROM usuario INNER JOIN seguimiento ON usuario.id_usuario=seguimiento.usuario_id_usuario where usuario.usuario = '" + usuario + "' ");
+            tamaño_consulta.next();
+            tam = tamaño_consulta.getInt(1);
+            st.close();
+        }
+        c.desconexion();
+
+        return tam;
+    }
+
 }
