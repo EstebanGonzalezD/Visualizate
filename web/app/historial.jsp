@@ -23,6 +23,7 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style_historial.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
         <!----Favicon---->
         <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
@@ -38,43 +39,11 @@
 
 
         <%
-            Conexion c = new Conexion();
-            Connection con = c.getConnection();
-
             HttpSession sesion = request.getSession(false);
-            String user = (String) sesion.getAttribute("username");
-
-            int puntaje = 0;
-            int puntaje2 = 0;
-            int id = 0;
-            String nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento;
-
-            String fecha;
-            int id_test;
-
-            try {
-                id = Procedimientos.ObtenerID(user);
-                Statement st;
-                st = con.createStatement();
-                ResultSet usuarios = st.executeQuery("Select * from seguimiento where usuario_id_usuario='" + id + "'");
-
-                while (usuarios.next()) {
-
-                    id_test = usuarios.getInt("ID_TEST");
-                    fecha = usuarios.getString("FECHA").split(" ")[0];
-                    puntaje = usuarios.getInt("PUNTAJE");
-
-                }
-
-                st.close();
-                c.desconexion();
-            } catch (SQLException ex) {
-                Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            String user = (String) sesion.getAttribute("username"); 
             String username = (String) session.getAttribute("username");
             String password = (String) session.getAttribute("password");
-           
+            
             if (username == null && password
                     == null) {
                 response.sendRedirect("app/index.jsp");
@@ -83,13 +52,35 @@
         %>
         <%                }
         %>
-        <div class="navbar">
-            <nav class="navbar navbar-light fixed-top">
+
+            <nav class="navbar navbar-light">
                 <a class=" navbar-brand mx-auto" href="${pageContext.request.contextPath}/app/index.jsp">VISUALIZATE</a>
                 <a href="../login/sign_in.jsp" class="btn btn-sign_out">
                     <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
             </nav>
-        </div>
+
+                <%
+            try {
+
+                String dark_mode = (String) sesion.getAttribute("dark_mode");
+
+                if (dark_mode.equals("ON")) {
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+
+        <%      } else if (dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
         <div class="container">
             <div class="main-title text-center w-100">
                 <h1>Historial</h1>
@@ -160,7 +151,7 @@
     %>
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
-        type: "line",
+        type: "cake",
         data: {
             labels: [<%for (int i = 0; i < arrFechas.length; i++) {
                         if(i != arrFechas.length-1){
@@ -171,7 +162,7 @@
                        }
                     %>],
             datasets: [{
-                    label: 'Test realizados.',
+                    label: 'Puntaje Obtenido.',
                     data: [<%for (int i = 0; i < arrPuntajes.length; i++) {
                         if(i != arrPuntajes.length-1){
                         %>'<%=arrPuntajes[i]%>',<%

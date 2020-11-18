@@ -284,7 +284,7 @@ public class Procedimientos {
 
     public static int[] GraficoPuntaje(String usuario) throws ParseException, SQLException {
         int tam = GraficoTamaño(usuario);
-        
+
         int cont = 0;
         int arr2[] = new int[tam];
         Conexion c = new Conexion();
@@ -324,4 +324,155 @@ public class Procedimientos {
         return tam;
     }
 
+    public static String StatusDarkMode(String usuario) throws SQLException {
+        String tam = "";
+
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+
+        if (con != null) {
+            Statement st;
+            st = con.createStatement();
+            ResultSet tamaño_consulta = st.executeQuery("SELECT * FROM usuario INNER JOIN preferencias ON usuario.id_usuario=preferencias.id_usuario_preferencia where usuario.usuario ='" + usuario + "'");
+            while (tamaño_consulta.next()) {
+                tam = tamaño_consulta.getString("modo_oscuro");
+            }
+            st.close();
+        }
+        c.desconexion();
+
+        return tam;
+    }
+
+    public static boolean UpdateDarkMode(String status, int id) throws SQLException {
+
+        boolean actualizado = false;
+
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+
+        if (con != null) {
+            Statement st;
+            st = con.createStatement();
+            st.executeUpdate("Update preferencias Set modo_oscuro='" + status + "' Where id_usuario_preferencia='" + id + "'");
+            actualizado = true;
+            st.close();
+        }
+        c.desconexion();
+
+        return actualizado;
+    }
+
+    public static int getID_Usuario(String usuario) throws SQLException {
+        int id = 0;
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        ResultSet rs = null;
+        Statement st = con.createStatement();
+        rs = st.executeQuery("select id_usuario from Usuario where usuario='" + usuario + "'");
+
+        if (rs != null) {
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+        }
+        return id;
+    }
+
+    public static boolean CrearPreferencias(int id) throws SQLException {
+        boolean agregado = false;
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+
+        if (con != null) {
+            Statement st;
+            st = con.createStatement();
+            st.executeUpdate("Insert into preferencias (id_usuario_preferencia, modo_oscuro) values (" + id + ", 'OFF')");
+            agregado = true;
+            st.close();
+        }
+        c.desconexion();
+
+        return agregado;
+    }
+
+    public static int ContadorRespuestas() throws SQLException {
+        int tam, cont, A, B, C, D;
+        cont = 0;
+        A = 0;
+        B = 0;
+        C = 0;
+        D = 0;
+        tam = 0;
+        
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        ResultSet rs = null;
+        Statement st = con.createStatement();
+        rs = st.executeQuery("SELECT * FROM usuario INNER JOIN seguimiento ON usuario.id_usuario=seguimiento.usuario_id_usuario INNER JOIN resp_pregunta ON seguimiento.id_test=resp_pregunta.seguimiento_id_test;");
+
+        if (rs != null) {
+            while (rs.next()) {
+                cont = 0;
+                cont = rs.getInt("PREGUNTA1");
+                if(cont == 40){
+                    A++;
+                }else if(cont == 30){
+                    B++;
+                }else if(cont == 20){
+                    C++;
+                }else if(cont == 10){
+                    D++;
+                }
+                tam++;
+            }
+        }
+
+        return cont;
+    }
+    
+    public static void main(String[] args) throws SQLException {
+              int tam, cont, A, B, C, D;
+        cont = 0;
+        A = 0;
+        B = 0;
+        C = 0;
+        D = 0;
+        tam = 0;
+        
+        Conexion c = new Conexion();
+        Connection con = c.getConnection();
+        ResultSet rs = null;
+        Statement st = con.createStatement();
+        rs = st.executeQuery("SELECT * FROM usuario INNER JOIN seguimiento ON usuario.id_usuario=seguimiento.usuario_id_usuario INNER JOIN resp_pregunta ON seguimiento.id_test=resp_pregunta.seguimiento_id_test");
+
+        if (rs != null) {
+            while (rs.next()) {
+                cont = 0;
+                cont = rs.getInt("PREGUNTA2");
+                switch (cont) {
+                    case 40:
+                        A++;
+                        break;
+                    case 30:
+                        B++;
+                        break;
+                    case 20:
+                        C++;
+                        break;
+                    case 10:
+                        D++;
+                        break;
+                    default:
+                        break;
+                }
+                tam++;
+            }
+        }
+        System.out.println("El total de respuestas es "+tam);
+        System.out.println("A = "+A);
+        System.out.println("B = "+B);
+        System.out.println("C = "+C);
+        System.out.println("D = "+D);
+    }
 }

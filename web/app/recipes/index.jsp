@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style-app.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/spinner.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/mediaqueries-app.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
 
         <title>Visualizate - Recetas</title>
 
@@ -36,15 +37,36 @@
         </div>
         <!--Navbar-->
         <nav class="navbar navbar-light fixed-top bg-light" style="display:none;">
-            <a class="navbar-brand mx-auto" href="../../webPage/index.html">VISUALÍZATE</a>
+            <a class="navbar-brand mx-auto" href="${pageContext.request.contextPath}/app/index.jsp">VISUALÍZATE</a>
             <form method="POST" action="${pageContext.request.contextPath}/test">
                 <input type="hidden" name="pagina" value="signout">
                 <input id="login_btn" type="submit" value="Cerrar Sesión" class="btn btn-sign_out">
 
             </form>
         </nav>
-                
-          <!-- Recetas -->       
+        <%
+            try {
+                HttpSession sesion = request.getSession(false);
+                String dark_mode = (String) sesion.getAttribute("dark_mode");
+
+                if (dark_mode.equals("ON")) {
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+
+        <%      } else if (dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
+        <!-- Recetas -->       
         <div class="contenedor">
             <header>
                 <form action="">
@@ -139,8 +161,8 @@
                     </div>
                 </div>
 
-                
-                 <!Platillo>
+
+                <!Platillo>
                 <div class="item"
                      data-categoria="platillos"
                      data-etiquetas="zanahoria pepino ensalada"
@@ -182,8 +204,8 @@
                 <p class="descripcion"></p>
             </section>
 
-            
-            
+
+
             <!-- Modal Manzanilla -->
             <div class="modal fade" id="ModalManzanilla" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -220,9 +242,9 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
+
+
+
             <!-- Modal Santolina -->
             <div class="modal fade" id="ModalSantolina" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -235,8 +257,8 @@
                         </div>
                         <div class="modal-body">
                             <p>  Es un tipo de manzanilla que se recomienda para tratar la inflamación de los párpados, la
-                            vista cansada y la irritación ocular. Como en el caso anterior, se puede utilizar en forma
-                            de colirio o baño ocular.</p>
+                                vista cansada y la irritación ocular. Como en el caso anterior, se puede utilizar en forma
+                                de colirio o baño ocular.</p>
 
                             <center>
                                 <div class="dropdown">
@@ -259,9 +281,9 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
+
+
+
             <!-- Modal Arandanos -->
             <div class="modal fade" id="ModalArandanos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -274,8 +296,8 @@
                         </div>
                         <div class="modal-body">
                             <p>  Los arándanos son una medicina natural para la visión de tus ojos porque son ricos en
-                            antioxidantes que ayudan a reparar las células nerviosas de la retina. Mejor tomarlos crudos
-                            o deshidratados.</p>
+                                antioxidantes que ayudan a reparar las células nerviosas de la retina. Mejor tomarlos crudos
+                                o deshidratados.</p>
 
                             <center>
                                 <div class="dropdown">
@@ -299,10 +321,10 @@
                 </div>
             </div>
 
-            
-            
-            
-            
+
+
+
+
             <!-- Modal Zanahoria -->
             <div class="modal fade" id="ModalZanahoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -315,10 +337,10 @@
                         </div>
                         <div class="modal-body">
                             <p>   Rica en vitamina A, que es necesaria para la visión en ambientes con poca iluminación.
-                            Además, gracias a su riqueza en carotenos, ejerce un efecto reparador. Podrás consumirla
-                            picando una o dos zanahorias junto con un trozo de apio y agua hasta obtener una pasta. Se
-                            empapa una gasa o algodón con esta pasta y se aplica sobre los párpados y el contorno de
-                            ojos.</p>
+                                Además, gracias a su riqueza en carotenos, ejerce un efecto reparador. Podrás consumirla
+                                picando una o dos zanahorias junto con un trozo de apio y agua hasta obtener una pasta. Se
+                                empapa una gasa o algodón con esta pasta y se aplica sobre los párpados y el contorno de
+                                ojos.</p>
 
                             <center>
                                 <div class="dropdown">
@@ -336,17 +358,17 @@
                             <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaZanahoria"></iframe>
                         </div>
                         <div class="modal-footer">
-   
+
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <a href="https://cookpad.com/co/buscar/zanahoria%20arandano"><button type="button" class="btn btn-secondary">Recetas</button></a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            
-            
-            
+
+
+
+
             <!-- Modal Pepino -->
             <div class="modal fade" id="ModalPepino" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -359,9 +381,9 @@
                         </div>
                         <div class="modal-body">
                             <p>  El pepino en rodajas ayuda a aliviar el hinchazón de los ojos. El pepino tiene grandes
-                            propiedades y vitaminas que nutren la piel alrededor de los ojos e incluso pueden reducir la
-                            aparición de arrugas. Solo debes cortar un pepino en rebanadas y colocártelo sobre los ojos.
-                            Dejar actuar por unos 20 minutos. Luego, enjuagar con agua fría.</p>
+                                propiedades y vitaminas que nutren la piel alrededor de los ojos e incluso pueden reducir la
+                                aparición de arrugas. Solo debes cortar un pepino en rebanadas y colocártelo sobre los ojos.
+                                Dejar actuar por unos 20 minutos. Luego, enjuagar con agua fría.</p>
 
                             <center>
                                 <div class="dropdown">
@@ -384,11 +406,11 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
-            
-              <!-- Modal Aciano-->
+
+
+
+
+            <!-- Modal Aciano-->
             <div class="modal fade" id="ModalAciano" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
@@ -400,10 +422,10 @@
                         </div>
                         <div class="modal-body">
                             <p>  El agua de aciano es muy efectivo para fortalecer y conservar la vista, sobre todo en las
-                            personas de edad avanzada. Sus maravillosos efectos consisten en que muchas de sus
-                            propiedades fomentan y mejoran la circulación capilar del ojo, aliviando la vista cansada y
-                            la irritación ocular. Se puede tomar en infusión o aplicarla por vía típica en compresas o
-                            colirios.</p>
+                                personas de edad avanzada. Sus maravillosos efectos consisten en que muchas de sus
+                                propiedades fomentan y mejoran la circulación capilar del ojo, aliviando la vista cansada y
+                                la irritación ocular. Se puede tomar en infusión o aplicarla por vía típica en compresas o
+                                colirios.</p>
 
                             <center>
                                 <div class="dropdown">
@@ -426,11 +448,11 @@
                     </div>
                 </div>
             </div>
-              
-              
-              
-              
-              <!-- Modal Platillo Zanahoria y Pepino -->
+
+
+
+
+            <!-- Modal Platillo Zanahoria y Pepino -->
             <div class="modal fade" id="ModalZanahoriaPepino" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
@@ -447,7 +469,7 @@
                                 plato, unas pasas de uva ligeramente dulces junto a las nueces, que aportan un toque 
                                 crujiente. En el mundo de las ensaladas no todo se resume a lechuga y tomate.</p>
 
-                            
+
                             <center>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonZanahoria" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -464,7 +486,7 @@
                             <iframe src="" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" id="mapaZanahoria"></iframe>
                         </div>
                         <div class="modal-footer">
-   
+
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <a href="https://cookpad.com/co/buscar/zanahoria%20arandano" target="_blank"><button type="button" class="btn btn-secondary">Recetas</button></a>
                         </div>
@@ -473,11 +495,11 @@
             </div>
 
 
-            
-            
-            
-            
-            
+
+
+
+
+
             <footer class="contenedor">
                 <div class="redes-sociales">
                     <div class="contenedor-icono">
@@ -531,7 +553,7 @@
 
 
         <!-- Scripts Navegador-->
-       <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
                 integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

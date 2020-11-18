@@ -56,25 +56,13 @@ public class test extends HttpServlet {
             HttpSession sesion = request.getSession(false);
             String user = (String) sesion.getAttribute("username");
             int id = 0;
-            int contador = 0;
             try {
-
-                Conexion c = new Conexion();
-                Connection con = c.getConnection();
-                ResultSet rs = null;
-                Statement st = con.createStatement();
-                rs = st.executeQuery("select id_usuario from Usuario where usuario='" + user + "'");
-
-                if (rs != null) {
-                    while (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-
-                }
-
+                id = Procedimientos.getID_Usuario(user);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
+            int contador = 0;
+            
 
             int puntaje = 0;
             String respuesta1 = request.getParameter("respuesta-p1");
@@ -275,6 +263,8 @@ public class test extends HttpServlet {
                     RequestDispatcher despachador = request.getRequestDispatcher("app/resultado_test.jsp");
                     despachador.forward(request, response);
                 } catch (ParseException ex) {
+                    Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
                     Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {

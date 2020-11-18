@@ -204,33 +204,3 @@ span, strong{
   to   { opacity: 1; }
 }
 
-/*Styles Dark Mode*/
-
-.dark-mode-button{
-    position: absolute;
-    top: 20px;
-    left: -200px;
-    padding:20px;
-    background: white;
-}
-
-html.dark-mode{
-    filter: invert(100%);
-    
-}
-
-html.dark-mode img{
-    filter: invert(100%);
-    
-}
-
-html.dark-mode .navbar{
-    filter: invert(100%);
-    
-}
-
-html.dark-mode body{
-    background: #753d1d;
-    
-}
-

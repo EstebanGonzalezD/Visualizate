@@ -15,6 +15,7 @@
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style-app.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/spinner.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/mediaqueries-app.css">
         <!----Favicon---->
@@ -45,22 +46,30 @@
 
         <%
             try {
+                HttpSession sesion = request.getSession(false);
+                String dark_mode = (String) sesion.getAttribute("dark_mode");
 
-                boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
-
-                if (false) {
+                if (dark_mode.equals("ON")) {
         %>
         <script>
             document.documentElement.classList.toggle('dark-mode');
         </script>
-        
-        <%                }
+
+        <%      } else if(dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
+        <%
+        }
             } catch (Exception e) {
             }
         %>
         <!-- Modal -->
-     
-        
+
+
         <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -154,7 +163,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="${pageContext.request.contextPath}/app/recipes/index.jsp?param1=true" class="card-group">           
+                    <a href="${pageContext.request.contextPath}/app/recipes/index.jsp" class="card-group">           
                         <div class="col-4">
                             <div class="card content-item" id="card2">
                                 <div class="card-image pic">
@@ -238,7 +247,6 @@
 
                     <form class="dark-mode-button" action="${pageContext.request.contextPath}/Lobby" method="post">
                         <input type="hidden" name="pagina" value="Dark-mode">
-                        <input id="nnn" type="hidden" name="nnn" value="Off">
                         <input id="dark-mode-content" type="submit" value="Modo Oscuro" class="btn login_btn">
                     </form>
 

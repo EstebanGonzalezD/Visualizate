@@ -8,7 +8,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/video/assets/css/style.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
+
         <!----Favicon---->
         <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
@@ -21,29 +23,38 @@
 
     </head>
 
-    <body>
-        <div class="navbar">
-            <nav class="navbar navbar-light fixed-top bg-light">
+    <body class="backg">
+
+  
+            <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand mx-auto" href="${pageContext.request.contextPath}/app/index.jsp">VISUALIZATE</a>
                 <a href="../../login/sign_in.jsp" class="btn btn-sign_out">
                     <i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
             </nav>
-        </div>
 
         <%
             try {
+                HttpSession sesion = request.getSession(false);
+                String dark_mode = (String) sesion.getAttribute("dark_mode");
 
-                boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
-                if (status_dm) {
-
+                if (dark_mode.equals("ON")) {
         %>
         <script>
             document.documentElement.classList.toggle('dark-mode');
         </script>
+
+        <%      } else if (dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
         <%                }
             } catch (Exception e) {
             }
         %>
+
 
         <div class="btn-back">
             <form method ="post" action="${pageContext.request.contextPath}/Lobby">

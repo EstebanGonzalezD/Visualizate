@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import Entidades.Procedimientos;
 
 /**
  *
@@ -128,23 +129,25 @@ public class Lobby extends HttpServlet {
 
         } else if (pagina.equals("Dark-mode")) {
             
-            String nnn = request.getParameter("nnn");
-            boolean dark_mode;
+            HttpSession sesion = request.getSession(false);
+            String dark_mode = (String) sesion.getAttribute("dark_mode");
+            int id = (Integer) sesion.getAttribute("id");
             
-          
-            
-            if(nnn.equals("Off")){
-                dark_mode= true;
-                nnn = "On";
-            }else{
-                dark_mode= false;
-                nnn = "Off";
+            if(dark_mode.equals("OFF")){
+                dark_mode = "ON";
+            }else if(dark_mode.equals("ON")){
+                dark_mode= "OFF";
             }
-           
             
+            try {
+                boolean sw = Procedimientos.UpdateDarkMode(dark_mode, id);
+                if(sw){
+                    sesion.setAttribute("dark_mode", dark_mode);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-            request.setAttribute("status_dm", dark_mode);
-            request.setAttribute("status_dm_letters", nnn);
             RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
             despachador.forward(request, response);
         

@@ -105,20 +105,33 @@ public class ServletRegistro extends HttpServlet {
                 Usuario usuario = new Usuario(nombre, ParamUsuario, ParamContraseña, ParamCorreo, ParamGenero, ParamFecha, 0);
 
                 boolean sw = false;
-
+                boolean sw_preferencias = false;
                 try {
                     sw = CrearUsuario.agregarUsuario(usuario);
+
                 } catch (SQLException ex) {
                     Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 if (sw) {
-                    RequestDispatcher despachador = request.getRequestDispatcher("login/sign_in.jsp");
-                    despachador.forward(request, response);
-                    enviarCorreo(ParamCorreo);
+                    try {
+                        int id_user = Procedimientos.ObtenerID(ParamUsuario);
+                        sw_preferencias = Procedimientos.CrearPreferencias(id_user);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (sw_preferencias) {
+                        RequestDispatcher despachador = request.getRequestDispatcher("login/sign_in.jsp");
+                        despachador.forward(request, response);
+                        enviarCorreo(ParamCorreo);
+                    } else {
+                        PrintWriter out = response.getWriter();
+                        out.println("Error: ServletRegistro (129)");
+                    }
+
                 } else {
                     PrintWriter out = response.getWriter();
-                    out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud. " + nombre + ParamContraseña + ParamCorreo + ParamFecha + ParamGenero + ParamUsuario);
+                    out.println("Error: ServletRegistro (134)");
                 }
             } else {
                 PrintWriter out = response.getWriter();
@@ -139,20 +152,23 @@ public class ServletRegistro extends HttpServlet {
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("username", ParamNombre);
                 sesion.setAttribute("password", ParamContraseña);
-                
-                boolean dark_mode = false;
-                request.setAttribute("status_dm", dark_mode);
-                
+
                 try {
                     String arregloFechas[] = Procedimientos.GraficoFecha(ParamNombre);
                     int arregloPuntajes[] = Procedimientos.GraficoPuntaje(ParamNombre);
+                    String dark_mode = Procedimientos.StatusDarkMode(ParamNombre);
+                    int id = Procedimientos.getID_Usuario(ParamNombre);
+
+                    sesion.setAttribute("id", id);
+                    sesion.setAttribute("dark_mode", dark_mode);
                     sesion.setAttribute("arregloFechas", arregloFechas);
                     sesion.setAttribute("arregloPuntajes", arregloPuntajes);
                 } catch (ParseException ex) {
                     Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ServletRegistro.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-                
+
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
                 despachador.forward(request, response);
             } else {

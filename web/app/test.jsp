@@ -15,8 +15,9 @@
         <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/img/favicon-16x16.png">
         <link rel="manifest" href="${pageContext.request.contextPath}/img/site.webmanifest">
         <link rel="mask-icon" href="${pageContext.request.contextPath}/img/safari-pinned-tab.svg" color="#5bbad5">
-        
-        
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
+
+
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style-app.css">
 
         <meta name="msapplication-TileColor" content="#da532c">
@@ -26,25 +27,26 @@
     <body class="backg">
         <%
             try {
+                HttpSession sesion = request.getSession(false);
+                String dark_mode = (String) sesion.getAttribute("dark_mode");
 
-                boolean status_dm = ((Boolean) request.getAttribute("status_dm")).booleanValue();
-
-                if (status_dm) {
-
+                if (dark_mode.equals("ON")) {
         %>
         <script>
             document.documentElement.classList.toggle('dark-mode');
         </script>
+
+        <%      } else if (dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
         <%                }
             } catch (Exception e) {
             }
         %>
-
-        <form class="dark-mode-button" action="${pageContext.request.contextPath}/Lobby" method="post">
-            <input type="hidden" name="pagina" value="Dark-mode">
-            <input id="dark-mode" type="submit" value="Modo Oscuro" class="btn login_btn">
-        </form>
-
         <div class="container">
             <div class="card title bg-light">
                 <div class="border-top"></div>
