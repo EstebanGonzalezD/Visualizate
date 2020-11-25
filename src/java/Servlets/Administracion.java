@@ -67,7 +67,7 @@ public class Administracion extends HttpServlet {
                 String nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento;
                 int puntaje;
 
-                try{
+                try {
 
                     Statement st;
                     st = con.createStatement();
@@ -81,14 +81,13 @@ public class Administracion extends HttpServlet {
                         correo = usuario.getString("CORREO");
                         genero = usuario.getString("GENERO");
                         fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, 0));
 
                     }
                     st.close();
-                }catch(SQLException e){
-                
+                } catch (SQLException e) {
+
                 }
 
                 request.setAttribute("usuarios", array_usuarios);
@@ -141,9 +140,8 @@ public class Administracion extends HttpServlet {
                         correo = usuarios.getString("CORREO");
                         genero = usuarios.getString("GENERO");
                         fecha_nacimiento = usuarios.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, 0));
 
                     }
                     st.close();
@@ -195,9 +193,8 @@ public class Administracion extends HttpServlet {
                         correo = usuario.getString("CORREO");
                         genero = usuario.getString("GENERO");
                         fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, 0));
 
                     }
                     st.close();
@@ -214,14 +211,18 @@ public class Administracion extends HttpServlet {
             }
 
         } else if (pagina.equals("Actualizar_Usuario")) {
-
+            String ParamUsuarioCambio = request.getParameter("cambio_usuario");
             String ParamUsuario = request.getParameter("usuario");
+            String ParamNombre = request.getParameter("nombre");
+            String ParamPassword = request.getParameter("password");
             String ParamCorreo = request.getParameter("correo");
+            String ParamFecha = request.getParameter("fecha");
+            String ParamGenero = request.getParameter("genero");
 
             boolean sw = false;
 
             try {
-                sw = Procedimientos.ActualizarElCorreo(ParamUsuario, ParamCorreo);
+                sw = Procedimientos.ActualizarElCorreo(ParamUsuarioCambio, ParamUsuario, ParamNombre, ParamPassword, ParamCorreo, ParamFecha, ParamGenero);
             } catch (SQLException ex) {
                 Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -249,9 +250,8 @@ public class Administracion extends HttpServlet {
                         correo = usuario.getString("CORREO");
                         genero = usuario.getString("GENERO");
                         fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, 0));
 
                     }
                     st.close();
@@ -263,6 +263,9 @@ public class Administracion extends HttpServlet {
                 RequestDispatcher despachador = request.getRequestDispatcher("app/administracion.jsp");
                 despachador.forward(request, response);
 
+            }else{
+                PrintWriter out = response.getWriter();
+                out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud.");
             }
 
         } else if (pagina.equals("Buscar_Usuario")) {
@@ -289,7 +292,7 @@ public class Administracion extends HttpServlet {
 
                     Statement st;
                     st = con.createStatement();
-                    ResultSet usuario = st.executeQuery("Select * from USUARIO where usuario='"+ParamUsuario+"'");
+                    ResultSet usuario = st.executeQuery("Select * from USUARIO where usuario='" + ParamUsuario + "'");
                     while (usuario.next()) {
 
                         //id = usuario.getInt("");
@@ -299,9 +302,8 @@ public class Administracion extends HttpServlet {
                         correo = usuario.getString("CORREO");
                         genero = usuario.getString("GENERO");
                         fecha_nacimiento = usuario.getString("FECHA_NACIMIENTO").split(" ")[0];
-                        
 
-                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento,0));
+                        array_usuarios.add(new Usuario(nombre, nombre_usuario, contraseña, correo, genero, fecha_nacimiento, 0));
 
                     }
                     st.close();

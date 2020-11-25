@@ -58,7 +58,7 @@ public class Procedimientos {
         return agregado;
     }
 
-    public static boolean ActualizarElCorreo(String usuario, String correo) throws SQLException {
+    public static boolean ActualizarElCorreo(String us_cambio, String usuario,String nombre,String contrasenia, String correo,  String fecha, String genero) throws SQLException {
 
         boolean agregado = false;
 
@@ -68,7 +68,7 @@ public class Procedimientos {
         if (con != null) {
             Statement st;
             st = con.createStatement();
-            st.executeUpdate("update USUARIO set correo='" + correo + "' where usuario='" + usuario + "'");
+            st.executeUpdate("update USUARIO set usuario='" + usuario + "',nombre_usuario='"+ nombre +"' ,contrasenia='"+ contrasenia +"' ,correo='"+ correo +"' , fecha_nacimiento='"+ fecha +"' , genero='"+ genero +"' where usuario='" + us_cambio + "'");
             agregado = true;
             st.close();
         }

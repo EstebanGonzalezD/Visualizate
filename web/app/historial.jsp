@@ -151,7 +151,7 @@
     %>
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {
-        type: "cake",
+        type: "line",
         data: {
             labels: [<%for (int i = 0; i < arrFechas.length; i++) {
                         if(i != arrFechas.length-1){
