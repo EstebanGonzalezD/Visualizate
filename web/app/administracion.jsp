@@ -16,16 +16,6 @@
         <script type="text/javascript" src="../app/assets/js/administracion.js"></script>
     </head>
     <body>
-
-        <h2>Buscar un usuario</h2>
-
-        <form method="post" action="Administracion">
-            <input type="text" name="usuario" placeholder="Usuario"><br><br>
-            <input type="hidden" name="pagina" value="Buscar_Usuario">
-            <input type="submit" name="Enviar" value="Buscar">
-        </form>
-
-
         <div class="container-xl">
             <div class="table-responsive">
                 <div class="table-wrapper">
@@ -34,15 +24,18 @@
                             <div class="col-sm-6">
                                 <h2> Lista de <b>Usuarios</b></h2>
                             </div>
+                            
                             <div class="col-sm-6">
-                                <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Añadir Usuario</span></a>
-                            </div>
+                                <form method="post" action="Administracion">
+                                    <input type="hidden" name="pagina" value="Buscar_Usuario">
+                                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Añadir Usuario</span></a> <span style="margin-left: 160px;"><input style="height: 35px; border-radius: 5px;" type="text" name="usuario" placeholder="Usuario"></span>
+                                </form> 
+                           </div>
+                                 
                         </div>
                     </div>
 
-
-
-                    <table class="table table-striped table-hover">
+                    <table>
 
 
                         <span class="header">Usuario</span>
