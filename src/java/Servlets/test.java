@@ -260,7 +260,7 @@ public class test extends HttpServlet {
                     int arregloPuntajes[] = Procedimientos.GraficoPuntaje(user);
                     sesion.setAttribute("arregloFechas", arregloFechas);
                     sesion.setAttribute("arregloPuntajes", arregloPuntajes);
-                    RequestDispatcher despachador = request.getRequestDispatcher("app/resultado_test.jsp");
+                    RequestDispatcher despachador = request.getRequestDispatcher("app/ResultadoTest.jsp");
                     despachador.forward(request, response);
                 } catch (ParseException ex) {
                     Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
@@ -268,8 +268,8 @@ public class test extends HttpServlet {
                     Logger.getLogger(test.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
-                PrintWriter out = response.getWriter();
-                out.println("Error: Test (309)");
+                RequestDispatcher despachador = request.getRequestDispatcher("app/ErrorPuntaje.jsp");
+                despachador.forward(request, response);
             }
 
         } else if (pagina.equals("signout")) {

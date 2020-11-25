@@ -172,8 +172,11 @@ public class ServletRegistro extends HttpServlet {
                 RequestDispatcher despachador = request.getRequestDispatcher("app/index.jsp");
                 despachador.forward(request, response);
             } else {
-                PrintWriter out = response.getWriter();
-                out.println("No iniciamos sesión, que depresión ");
+                /*PrintWriter out = response.getWriter();
+                out.println("No iniciamos sesión, que depresión ");*/
+                
+                RequestDispatcher despachador = request.getRequestDispatcher("app/ErrorLogin.jsp");
+                despachador.forward(request, response);
             }
 
         } else if (pagina.equals("invitado_cont")) {
