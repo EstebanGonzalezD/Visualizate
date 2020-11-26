@@ -68,3 +68,16 @@ html.dark-mode .item-contenido{
     filter: invert(100%);
     
 }
+
+html.dark-mode #TituloTexto{
+    filter: invert(100%);
+}
+
+#img-logo{
+ width: 30px;
+ height: 30px;
+}
+
+html.dark-mode #main-title{
+    filter: invert(100%);
+}

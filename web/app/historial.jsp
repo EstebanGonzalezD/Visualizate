@@ -3,7 +3,6 @@
     Created on : 7/06/2020, 08:20:02 AM
     Author     : Esteban
 --%>
-
 <%@page import="Entidades.Procedimientos"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -83,7 +82,7 @@
         %>
         <div class="container">
             <div class="main-title text-center w-100">
-                <h1>Historial</h1>
+                <h1 id="TituloTexto">Historial</h1>
                 <hr>
             </div>
             <div class="container-text text-center w-100">

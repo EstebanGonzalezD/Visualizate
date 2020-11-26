@@ -396,43 +396,10 @@ public class Procedimientos {
         return agregado;
     }
 
-    public static int ContadorRespuestas() throws SQLException {
+    public static int[] ContadorRespuestas(String pregunta) throws SQLException {
+        //A = Arreglo[1] B es el 2, C es el 3, D es el 4 y el contador es la posición 0.
         int tam, cont, A, B, C, D;
-        cont = 0;
-        A = 0;
-        B = 0;
-        C = 0;
-        D = 0;
-        tam = 0;
-        
-        Conexion c = new Conexion();
-        Connection con = c.getConnection();
-        ResultSet rs = null;
-        Statement st = con.createStatement();
-        rs = st.executeQuery("SELECT * FROM usuario INNER JOIN seguimiento ON usuario.id_usuario=seguimiento.usuario_id_usuario INNER JOIN resp_pregunta ON seguimiento.id_test=resp_pregunta.seguimiento_id_test;");
-
-        if (rs != null) {
-            while (rs.next()) {
-                cont = 0;
-                cont = rs.getInt("PREGUNTA1");
-                if(cont == 40){
-                    A++;
-                }else if(cont == 30){
-                    B++;
-                }else if(cont == 20){
-                    C++;
-                }else if(cont == 10){
-                    D++;
-                }
-                tam++;
-            }
-        }
-
-        return cont;
-    }
-    
-    public static void main(String[] args) throws SQLException {
-              int tam, cont, A, B, C, D;
+        int arr[] = new int[5];
         cont = 0;
         A = 0;
         B = 0;
@@ -449,7 +416,7 @@ public class Procedimientos {
         if (rs != null) {
             while (rs.next()) {
                 cont = 0;
-                cont = rs.getInt("PREGUNTA2");
+                cont = rs.getInt("PREGUNTA"+pregunta);
                 switch (cont) {
                     case 40:
                         A++;
@@ -469,10 +436,14 @@ public class Procedimientos {
                 tam++;
             }
         }
-        System.out.println("El total de respuestas es "+tam);
-        System.out.println("A = "+A);
-        System.out.println("B = "+B);
-        System.out.println("C = "+C);
-        System.out.println("D = "+D);
+
+        arr[0] = tam;
+        arr[1] = A;
+        arr[2] = B;
+        arr[3] = C;
+        arr[4] = D;
+        
+        return arr;
     }
+
 }

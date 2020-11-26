@@ -23,6 +23,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Administracion extends HttpServlet {
 
@@ -315,7 +316,33 @@ public class Administracion extends HttpServlet {
                 RequestDispatcher despachador = request.getRequestDispatcher("app/administracion.jsp");
                 despachador.forward(request, response);
             }
-        } else {
+        } else if(pagina.equals("analisis")){
+            
+            
+            
+            try {
+                int arr[] = Procedimientos.ContadorRespuestas("1");
+                request.setAttribute("arrAnalisis", arr);
+                RequestDispatcher despachador = request.getRequestDispatcher("app/Administration/analisis.jsp");
+                despachador.forward(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+        }else if(pagina.equals("analisis_buscar")){
+            
+            String pregunta = request.getParameter("numero");
+            
+            try {
+                int arr[] = Procedimientos.ContadorRespuestas(pregunta);
+                request.setAttribute("arrAnalisis", arr);
+                RequestDispatcher despachador = request.getRequestDispatcher("app/Administration/analisis.jsp");
+                despachador.forward(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(Administracion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+        }else{
             PrintWriter out = response.getWriter();
             out.println("Inicia Sesión como administrador para poder acceder a el apartado de Administración.");
         }

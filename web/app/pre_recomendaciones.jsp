@@ -9,12 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Ejercicios</title>
 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/style_historial.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -28,10 +29,46 @@
             }
 
         </style>
+                <%
+            HttpSession sesion = request.getSession(false);
+            String user = (String) sesion.getAttribute("username"); 
+            String username = (String) session.getAttribute("username");
+            String password = (String) session.getAttribute("password");
+            
+            if (username == null && password
+                    == null) {
+                response.sendRedirect("app/index.jsp");
+            } else {
+
+        %>
+        <%                }
+        %>
+        <%
+            try {
+
+                String dark_mode = (String) sesion.getAttribute("dark_mode");
+
+                if (dark_mode.equals("ON")) {
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+
+        <%      } else if (dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
     <center>
         <div style="padding-top:100px; padding-bottom: 50px">
-            <h1 class="text-center" style="width: 800px; text-align: center"> <img style="width: 30px; height: 30px;" src="${pageContext.request.contextPath}/webPage/assets/img/logo-visualizate2.png">
-                </img> Visualizate</h1>
+            <h1 id="TituloTexto" class="text-center" style="width: 800px; text-align: center">
+                Visualizate</h1>
         </div>
     </center>    
 

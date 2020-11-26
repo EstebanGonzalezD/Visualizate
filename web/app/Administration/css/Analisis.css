@@ -1,0 +1,13 @@
+.centrado{
+    text-align: center;
+}
+
+.grafico{
+    width: 500px; 
+    height: 500px;
+}
+
+.distancia{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

@@ -10,10 +10,33 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.gstatic.com">
+                <link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/styles-dark-mode.css">
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
                         <!--<link rel="stylesheet" href="${pageContext.request.contextPath}/app/assets/css/pagina_error.css">-->
     </head>
     <body>
+                <%
+            try {
+
+                String dark_mode = (String) session.getAttribute("dark_mode");
+
+                if (dark_mode.equals("ON")) {
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode');
+        </script>
+
+        <%      } else if (dark_mode.equals("OFF")) {
+
+        %>
+        <script>
+            document.documentElement.classList.toggle('dark-mode-off');
+        </script>
+
+        <%                }
+            } catch (Exception e) {
+            }
+        %>
         <style>
             body{
                 background-color: #f2f2f2;
@@ -26,7 +49,7 @@
         </style>
     <center>
         <div style="padding-top:100px; padding-bottom: 50px">
-            <h1 class="text-center" style="width: 800px; text-align: center"> <img style="width: 30px; height: 30px;" src="${pageContext.request.contextPath}/webPage/assets/img/logo-visualizate2.png">
+            <h1 class="TituloTexto text-center" style="width: 800px; text-align: center"> <img style="width: 30px; height: 30px;" src="${pageContext.request.contextPath}/webPage/assets/img/logo-visualizate2.png">
                 </img> Visualizate</h1>
         </div>
     </center>    
